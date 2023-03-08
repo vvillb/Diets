@@ -40,8 +40,8 @@ export function InputForm() {
   };
   
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form onSubmit={handleSubmit} class="row gy-2 gx-3 align-items-center">
+      <div class="col-auto">
         <label htmlFor="age">Age:</label>
         <input
           type="number"
@@ -51,7 +51,7 @@ export function InputForm() {
           onChange={handleAgeChange}
         />
       </div>
-      <div className="form-group">
+      <div class="col-auto">
         <label htmlFor="gender">Gender:</label>
         <select
           className="form-control"
@@ -65,7 +65,7 @@ export function InputForm() {
           <option value="other">Other</option>
         </select>
       </div>
-      <div className="form-group">
+      <div class="col-auto">
         <label htmlFor="weight">Weight (kg):</label>
         <input
           type="number"
@@ -75,7 +75,7 @@ export function InputForm() {
           onChange={handleWeightChange}
         />
       </div>
-      <div className="form-group">
+      <div class="col-auto">
         <label htmlFor="height">Height (cm):</label>
         <input
           type="number"
@@ -85,7 +85,7 @@ export function InputForm() {
           onChange={handleHeightChange}
         />
       </div>
-      <div className="form-group">
+      <div class="col-auto">
         <label htmlFor="activityLevel">Activity Level:</label>
         <input
           type="range"
