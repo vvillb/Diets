@@ -1,39 +1,65 @@
-import { useState } from "react";
+import react from "react";
 import Food from "./Food"; // Import the array of food items
 
-export function InputForm() {
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [activityLevel, setActivityLevel] = useState(5);
-  const [selectedFood, setSelectedFood] = useState("");
 
-  const handleAgeChange = (event) => {
-    setAge(event.target.value);
+export default class InputFormHOC extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      customer: {
+        age:props.age,
+        gender:props.gender,
+        weight:props.weight,
+        height:props.height,
+        activityLevel:props.activityLevel,
+        selectedFood:props.selectedFood
+      }
+    }
+  }
+
+
+
+   handleAgeChanged = (event) => {
+    var customer= this.state.customer;
+    customer.age=event.target.value;
+
+    this.setState({customer:customer});
   };
 
-  const handleGenderChange = (event) => {
-    setGender(event.target.value);
-  };
+   handleGenderChanged = (event) => {
+    var customer= this.state.customer;
+    customer.gender=event.target.value;
 
-  const handleWeightChange = (event) => {
-    setWeight(event.target.value);
+    this.setState({customer:customer});
   };
+  handleWeightChanged = (event) => {
+    var customer= this.state.customer;
+    customer.weight=event.target.value;
 
-  const handleHeightChange = (event) => {
-    setHeight(event.target.value);
+    this.setState({customer:customer});
   };
+  handleHeightChanged = (event) => {
+    var customer= this.state.customer;
+    customer.height=event.target.value;
 
-  const handleActivityLevelChange = (event) => {
-    setActivityLevel(event.target.value);
+    this.setState({customer:customer});
   };
+  handleActivityLevelChanged = (event) => {
+    var customer= this.state.customer;
+    customer.activityLevel=event.target.value;
 
-  const handleFoodChange = (event) => {
-    setSelectedFood(event.target.value);
+    this.setState({customer:customer});
   };
+   handleFoodChanged = (event) => {
+    var customer= this.state.customer;
+    customer.food=event.target.value;
 
-  const handleSubmit = (event) => {
+    this.setState({customer:customer});
+  };
+  
+
+   handleSubmit = (event) => {
    console.log({age, gender, weight, height, activityLevel})
     event.preventDefault();
     // Handle form submission
