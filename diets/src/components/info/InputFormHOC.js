@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import Food from "./Food"; // Import the array of food items
 
 
@@ -64,7 +64,7 @@ export default class InputFormHOC extends React.Component {
     event.preventDefault();
     // Handle form submission
   };
-  
+  render(){
   return (
     <form onSubmit={handleSubmit} class="row gy-2 gx-3 align-items-center">
       <div class="col-auto">
@@ -146,4 +146,4 @@ export default class InputFormHOC extends React.Component {
   );
 }
 
-export default InputForm;
+}
