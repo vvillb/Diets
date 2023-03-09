@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       <h1>Generar dietas</h1>
-      <InputForm/>
+      
       <InputFormHOC/>
     </div>
   )

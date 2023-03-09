@@ -12,8 +12,7 @@ export default class InputFormHOC extends React.Component {
         gender:props.gender,
         weight:props.weight,
         height:props.height,
-        activityLevel:props.activityLevel,
-        selectedFood:props.selectedFood,
+        activityLevel:1,
         food:[]
       }
     }
@@ -127,11 +126,19 @@ export default class InputFormHOC extends React.Component {
           type="range"
           className="form-control-range"
           id="activityLevel"
-          min="0"
-          max="10"
+          min="1"
+          max="5"
           value={this.state.customer.activityLevel}
           onChange={this.handleActivityLevelChanged.bind(this)}
+          list="activityLevels"
         />
+        <datalist id="activityLevels">
+          <option value="1">Sedentary</option>
+          <option value="2">Lightly Active</option>
+          <option value="3">Moderately Active</option>
+          <option value="4">Very Active</option>
+          <option value="5">Extremely Active</option>
+      </datalist>
       </div>
       <div className="form-group">
         <label>Food:</label>
