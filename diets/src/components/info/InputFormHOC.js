@@ -94,19 +94,7 @@ export default class InputFormHOC extends React.Component {
    console.log(this.state.customer);
    this.props.onSubmit(this.state.customer);
    CalculateMacros(this.state.customer.age, this.state.customer.gender, this.state.customer.height, this.state.customer.weight, this.state.customer.activityLevel)
-   return(<Card>
-      <Card.Header as="h5">Macros diarios</Card.Header>
-      <Card.Body>
-        <Card.Title>necesidades diarias para {this.state.customer.name}</Card.Title>
-        <Card.Text>
-          Calorías: 
-          Carbos: 
-          Proteína: 
-          Grasas: 
-        </Card.Text>
-        <Button variant="primary">Generar dieta</Button>
-      </Card.Body>
-    </Card>)
+
   
     
     // Handle form submission
