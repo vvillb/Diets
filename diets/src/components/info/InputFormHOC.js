@@ -13,7 +13,8 @@ export default class InputFormHOC extends React.Component {
         weight:props.weight,
         height:props.height,
         activityLevel:props.activityLevel,
-        selectedFood:props.selectedFood
+        selectedFood:props.selectedFood,
+        food:[]
       }
     }
   }
@@ -52,14 +53,20 @@ export default class InputFormHOC extends React.Component {
     this.setState({customer:customer});
   }
   handleFoodChanged = (event) => {
-    const selectedFood = event.target.value;
-    this.setState(prevState => ({
-      customer: {
-        ...prevState.customer,
-        selectedFood
+    const food = event.target.value;
+    const customer = this.state.customer;
+  
+    if (event.target.checked) {
+      customer.food.push(food);
+    } else {
+      const index = customer.food.indexOf(food);
+      if (index !== -1) {
+        customer.food.splice(index, 1);
       }
-    }));
-  }
+    }
+  
+    this.setState({ customer: customer });
+  };
   
 
    handleSubmit = (event) => {
@@ -132,10 +139,10 @@ export default class InputFormHOC extends React.Component {
           <div key={food.name} className="form-check">
             <input
               className="form-check-input"
-              type="radio"
+              type="checkbox"
               name="food"
               value={food.name}
-              checked={this.state.customer.selectedFood === food.name}
+              checked={this.state.customer.food.includes(food.name)}
               onChange={this.handleFoodChanged}
             />
             <label className="form-check-label">{food.name}</label>
