@@ -1,29 +1,49 @@
-import {customer} from './InputFormHOC'
 
-function CalculateMacros(inputs, goal) {
-  const { age, gender, weight, height, activityLevel } = customer.props;
-  const BMR = gender === 'male'
-    ? 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
-    : 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
-  const activityFactor = activityLevel === 1.2
-    ? 1.2 // sedentary
-    : activityLevel === 1.375
-    ? 1.375 // lightly active
-    : activityLevel === 1.55
-    ? 1.55 // moderately active
-    : activityLevel === 1.725
-    ? 1.725 // very active
-    : activityLevel === 1.9
-    ? 1.9 // extremely active
-    : 1.2; // default to sedentary
-  const TDEE = BMR * activityFactor;
-  const adjustment = goal === 'deficit' ? -0.2 : goal === 'surplus' ? 0.2 : 0;
-  const calories = TDEE * (1 + adjustment);
-  const protein = weight * (goal === 'maintain' ? 1.8 : 2);
-  const carbs = calories * 0.45 / 4;
-  const fats = (calories - (protein * 4) - (carbs * 4)) / 9;
-  const results={ calories, protein, carbs, fats };
-  return { results };
+
+import React from 'react'
+
+const CalculateMacros = (age, gender, height, weight, activityLevel) => {
+  let bmr;
+  let tdee;
+
+  // Determine BMR based on gender
+  if (gender === 'male') {
+    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  }
+
+  // Determine TDEE based on activity level
+  switch (activityLevel) {
+    case '1':
+      tdee = bmr * 1.2;
+      break;
+    case '2':
+      tdee = bmr * 1.375;
+      break;
+    case '3':
+      tdee = bmr * 1.55;
+      break;
+    case '4':
+      tdee = bmr * 1.725;
+      break;
+    case '5':
+      tdee = bmr * 1.9;
+      break;
+    default:
+      tdee = bmr * 1.2;
+      break;
+  }
+
+  // Calculate macro needs based on TDEE
+  const protein = Math.round(0.825 * weight);
+  const fat = Math.round(0.25 * tdee / 9);
+  const carbs = Math.round((tdee - (protein * 4) - (fat * 9)) / 4);
+
+  // Log the results to the console
+  console.log(`Daily macros needs for a ${gender} with a weight of ${weight}kg, height of ${height}cm, age of ${age}, and activity level of ${activityLevel}:`);
+  console.log(`Protein: ${protein}g`);
+  console.log(`Fat: ${fat}g`);
+  console.log(`Carbs: ${carbs}g`);
 }
-
 export default CalculateMacros

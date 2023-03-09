@@ -1,6 +1,5 @@
 import React from 'react'
-import InputForm from '../components/info/InputForm'
-import { age, gender, weight, height, activityLevel} from '../components/info/InputForm'
+import CalculateMacros from '../components/info/CalculateMacros'
 import InputFormHOC from '../components/info/InputFormHOC'
 
 function Home() {
@@ -10,6 +9,7 @@ function Home() {
       <h1>Generar dietas</h1>
       
       <InputFormHOC/>
+      <CalculateMacros/>
     </div>
   )
 }

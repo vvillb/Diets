@@ -2,3 +2,22 @@
   background-color: #17171f;
   color:antiquewhite;
 }
+
+.d-flex justify-content-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.activity-level-label {
+  flex: 1;
+  margin-left: 20px;
+  text-align: center;
+}
+.activity-level-label:first-of-type{
+  padding-left: 50px;
+}
+.form-control-range{
+  width: 500px;
+}

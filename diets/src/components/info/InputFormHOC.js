@@ -1,19 +1,24 @@
 import React from "react";
 import Food from "./Food"; // Import the array of food items
-
+import '../../App.css'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import CalculateMacros from "./CalculateMacros";
 
 export default class InputFormHOC extends React.Component {
+  
   constructor(props) {
     super(props);
 
     this.state = {
       customer: {
-        age:props.age,
-        gender:props.gender,
-        weight:props.weight,
-        height:props.height,
-        activityLevel:1,
-        food:[]
+        age: "-",
+        gender: "-",
+        weight: "-",
+        height: "-",
+        name: "-",
+        activityLevel: 1,
+        food: []
       }
     }
   }
@@ -21,30 +26,46 @@ export default class InputFormHOC extends React.Component {
 
 
    handleAgeChanged = (event) => {
-    var customer= this.state.customer;
-    customer.age=event.target.value;
-
-    this.setState({customer:customer});
+    this.setState({
+      customer: {
+        ...this.state.customer,
+        age: event.target.value
+      }
+    });
   }
 
-   handleGenderChanged = (event) => {
-    var customer= this.state.customer;
-    customer.gender=event.target.value;
-
-    this.setState({customer:customer});
+  handleGenderChanged = (event) => {
+    this.setState({
+      customer: {
+        ...this.state.customer,
+        gender: event.target.value
+      }
+    });
   }
   handleWeightChanged = (event) => {
-    var customer= this.state.customer;
-    customer.weight=event.target.value;
-
-    this.setState({customer:customer});
+    this.setState({
+      customer: {
+        ...this.state.customer,
+        weight: event.target.value
+      }
+    });
   }
-  handleHeightChanged = (event) => {
-    var customer= this.state.customer;
-    customer.height=event.target.value;
-
-    this.setState({customer:customer});
-  }
+    handleHeightChanged = (event) => {
+      this.setState({
+        customer: {
+          ...this.state.customer,
+          height: event.target.value
+        }
+      })
+    }
+      handleNameChanged = (event) => {
+        this.setState({
+          customer: {
+            ...this.state.customer,
+            name: event.target.value
+          }
+        })
+      }
   handleActivityLevelChanged = (event) => {
     var customer= this.state.customer;
     customer.activityLevel=event.target.value;
@@ -69,11 +90,35 @@ export default class InputFormHOC extends React.Component {
   
 
    handleSubmit = (event) => {
+   event.preventDefault();
    console.log(this.state.customer);
-    event.preventDefault();
+   this.props.onSubmit(this.state.customer);
+   CalculateMacros(this.state.customer.age, this.state.customer.gender, this.state.customer.height, this.state.customer.weight, this.state.customer.activityLevel)
+   return(<Card>
+      <Card.Header as="h5">Macros diarios</Card.Header>
+      <Card.Body>
+        <Card.Title>necesidades diarias para {this.state.customer.name}</Card.Title>
+        <Card.Text>
+          Calorías: 
+          Carbos: 
+          Proteína: 
+          Grasas: 
+        </Card.Text>
+        <Button variant="primary">Generar dieta</Button>
+      </Card.Body>
+    </Card>)
+  
+    
     // Handle form submission
-  }
+  };
   render(){
+    const activityLevels = [
+      { value: '1', label: 'Sedentary' },
+      { value: '2', label: 'Lightly Active' },
+      { value: '3', label: 'Moderately Active' },
+      { value: '4', label: 'Very Active' },
+      { value: '5', label: 'Extremely Active' },
+    ]; 
   return (
     <form onSubmit={this.handleSubmit.bind(this)} class="row gy-2 gx-3 align-items-center">
       <div class="col-auto">
@@ -120,6 +165,17 @@ export default class InputFormHOC extends React.Component {
           onChange={this.handleHeightChanged.bind(this)}
         />
       </div>
+      
+      <div class="col-auto">
+        <label htmlFor="name">Name:</label>
+        <input
+          type="string"
+          className="form-control"
+          id="cust_name"
+          value={this.state.customer.name}
+          onChange={this.handleNameChanged.bind(this)}
+        />
+      </div>
       <div class="col-auto">
         <label htmlFor="activityLevel">Activity Level:</label>
         <input
@@ -130,15 +186,12 @@ export default class InputFormHOC extends React.Component {
           max="5"
           value={this.state.customer.activityLevel}
           onChange={this.handleActivityLevelChanged.bind(this)}
-          list="activityLevels"
         />
-        <datalist id="activityLevels">
-          <option value="1">Sedentary</option>
-          <option value="2">Lightly Active</option>
-          <option value="3">Moderately Active</option>
-          <option value="4">Very Active</option>
-          <option value="5">Extremely Active</option>
-      </datalist>
+        <div className="d-flex justify-content-between">
+          {activityLevels.map((level) => (
+            <span key={level.value} className='activity-level-label'>{level.label}</span>
+          ))}
+        </div>
       </div>
       <div className="form-group">
         <label>Food:</label>
@@ -164,3 +217,6 @@ export default class InputFormHOC extends React.Component {
 }
 
 }
+InputFormHOC.defaultProps = {
+  onSubmit: () => {}
+};
