@@ -140,9 +140,13 @@ function FormCalc() {
           
         />
       </div>
+      <h5>Carbohidratos(gr):</h5>
       <input type="text" id="carbs" value={currentCarbs}  readOnly />
+      <h5>Proteína (gr):</h5>
       <input type="text" id="protein" value={currentProtein}  readOnly />
+      <h5>Grasas (gr):</h5>
       <input type="text" id="fats" value={currentFats}  readOnly />
+      <h5>Calorías totales:</h5>
       <input type="text" id="calories" value={currentCalories}  readOnly />
 
       <button type="submit" className="btn btn-primary" onClick={CalculateMacros}> 
