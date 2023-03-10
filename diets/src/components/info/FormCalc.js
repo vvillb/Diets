@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import Food from "./Food"; // Import the array of food items
 
 
 function FormCalc() {

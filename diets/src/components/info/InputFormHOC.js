@@ -1,5 +1,5 @@
 import React from "react";
-import Food from "./Food"; // Import the array of food items
+import Food from "./info/Food"; // Import the array of food items
 import '../../App.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
