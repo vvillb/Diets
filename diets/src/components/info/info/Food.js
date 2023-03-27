@@ -1,77 +1,85 @@
 
-const Food =[{
-        id:'0',
-        name:'Pan de molde integral',
-        c:100,
-        p:12,
-        f:2,
-    },
-    {
-        id:'1',
-        name:'Huevos',
-        c:5,
-        p:15,
-        f:10
-    },{
-        id:'2',
-        name:'Copos de avena',
-        c:20,
-        p:12,
-        f:2
-    },{
-        id:'3',
-        name:'Fresas',
-        c:20,
-        p:0.5,
-        f:0
-    },{
-        id:'4',
-        name:'Plátano',
-        c:40,
-        p:3,
-        f:0.5
-    },{
-        id:'5',
-        name:'Aguacate',
-        c:3,
-        p:0,
-        f:20
-    },{
-        id:'6',
-        name:'Crema de cacahuete',
-        c:2,
-        p:6,
-        f:20
-    },{
-        id:'7',
-        name:'Arroz integral',
-        c:30,
-        p:3,
-        f:0
-    },{
-        id:'8',
-        name:'Macarrones',
-        c:30,
-        p:3,
-        f:0
-    },{
-        id:'9',
-        name:'Pechuga de pollo',
-        c:30,
-        p:3,
-        f:0
-    },{
-        id:'10',
-        name:'Salmon',
-        c:30,
-        p:3,
-        f:0
-    },{
-        id:'11',
-        name:'Aceite de olive v.e.',
-        c:30,
-        p:3,
-        f:0
-    }
-]
+const Food =[
+{
+    id:1,
+    name:"proteinas",
+    alimentos:[
+        {
+            id:1_1,
+            name:"Pechugas de pollo o pavo",
+
+        },{
+            id:1_2,
+            name:"Filete de Ternera o Cerdo",
+        },{
+            id:1_3,
+            name:"Jamon Cocido (Fiambre)",
+        },{
+            id:1_4,
+            name:"Pavo (Fiambre)",
+        },{
+            id:1_5,
+            name:"Jamon Serrano"
+        },{
+            id:1_6,
+            name:"Yogur hacendoado proteínas",
+        },{
+            id:1_7,
+            name:"Queso freco batido",
+        },{
+            id:1_8,
+            name:"Batido de proteínas",
+        },{
+            id:1_9,
+            name:"Salmón",
+        },{
+            id:1_10,
+            name:"Pescado blanco",
+        },{
+            id:1_11,
+            name:"Huevos",
+        },{
+            id:1_12,
+            name:"Claras de huevo"
+        }
+    ]
+},{
+    id:2,
+    name:"hidratos",
+    alimentos:[
+        {
+            id:2_1,
+            name:"Copos de Avena",
+        },{
+            id:2_2,
+            name:"Pan de molde de semillas o cereales",
+        },{
+            id:2_3,
+            name:"Granola o muesli",
+        },{
+            id:2_4,
+            name:"Arroz largo",
+        },{
+            id:2_5,
+            name:"Pasta integral"
+        },{
+            id:2_6,
+            name:"Patata o batata"
+        },{
+            id:2_7,
+            name:"Garbanzos (opciones rápidas en bote)"
+        },{
+            id:2_8,
+            name:"Gnochi",
+        },{
+            id:2_9,
+            name:"Muesli",
+        },{
+            id:2_10,
+            name:"Dátiles",
+        },{
+            id:2_11,
+            name:"Quinoa",
+        }]
+}]
 export default Food
