@@ -21,3 +21,7 @@
 .form-control-range{
   width: 500px;
 }
+
+.cardResults{
+  display: block;
+}

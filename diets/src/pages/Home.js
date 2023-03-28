@@ -11,7 +11,7 @@ function Home() {
     <div>
       <h1>Generar dietas</h1>
       
-      <Tortitas/>
+      
       
       <FormCalc/>
       <MealMaker/>

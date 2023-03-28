@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import Food from '../info/Food';
+import FoodSimpler from '../info/FoodSimpler';
 import Card from 'react-bootstrap/Card';
+import '../../../App.css'
 
 function Tortitas() {
   const [currentCarbs, setCurrentCarbs] = useState(0);
@@ -11,7 +12,7 @@ function Tortitas() {
   const [claras,setClaras]=useState(50);
   const [lecheDeAlmendras,setLecheDeAlmendras]=useState(250);
   const [harinaDeAvena,setHarinaDeAvena]=useState(50); 
-  const [chocolate,setChocolate]=useState(20);
+  const [chocolate,setChocolate]=useState(2);
   const [quesoFrescoBatido,setQuesoFrescoBatido]=useState(150);
 
   useEffect(()=>{
@@ -30,18 +31,24 @@ function Tortitas() {
   
   const CalculateMacros=(e)=>{
     e.preventDefault();
-    let protein = Food[1_11].protein*huevos+Food[1_12].protein*claras+Food[3_5].protein*lecheDeAlmendras+Food[2_12].protein*harinaDeAvena+Food[3_7].protein*chocolate+Food[1_7].protein*quesoFrescoBatido;
-    let fats =Food[1_11].fats*huevos+Food[1_12].fats*claras+Food[3_5].fats*lecheDeAlmendras+Food[2_12].fats*harinaDeAvena+Food[3_7].fats*chocolate+Food[1_7].fats*quesoFrescoBatido;
-    let carbs = Food[1_11].carbs*huevos+Food[1_12].carbs*claras+Food[3_5].carbs*lecheDeAlmendras+Food[2_12].carbs*harinaDeAvena+Food[3_7].carbs*chocolate+Food[1_7].carbs*quesoFrescoBatido;
+    let protein = Math.floor((FoodSimpler[11].prot*huevos)+(FoodSimpler[12].prot*claras/100)+(FoodSimpler[32].prot*lecheDeAlmendras/100)+(FoodSimpler[24].prot*harinaDeAvena/100)+(FoodSimpler[34].prot*chocolate)+(FoodSimpler[7].prot*quesoFrescoBatido/100));
+    let fats =Math.floor(FoodSimpler[11].fats*huevos+FoodSimpler[12].fats*claras/100+FoodSimpler[32].fats*lecheDeAlmendras/100+FoodSimpler[24].fats*harinaDeAvena/100+FoodSimpler[34].fats*chocolate+FoodSimpler[7].fats*quesoFrescoBatido/100);
+    let carbs = Math.floor(FoodSimpler[11].carbs*huevos+FoodSimpler[12].carbs*claras/100+FoodSimpler[32].carbs*lecheDeAlmendras/100+FoodSimpler[24].carbs*harinaDeAvena/100+FoodSimpler[34].carbs*chocolate+FoodSimpler[7].carbs*quesoFrescoBatido/100);
     let calories=protein*4 + carbs*4 + fats*9;
         setCurrentCalories(calories);
         setCurrentCarbs(carbs);
         setCurrentProtein(protein);
         setCurrentFats(fats);   
   }
+
+  
+
+
+
   return (
+    
     <div>
-        <Card>
+        <Card >
             <Card.Body>
                 <Card.Title>Tortitas de avena</Card.Title>
                 <form>
@@ -113,10 +120,10 @@ function Tortitas() {
                             value={chocolate}
                             onChange={event=>setChocolate(event.target.value)}
                         >
-                            <option value="10">1 (oz)</option>
-                            <option value="20">2 (oz)</option>
-                            <option value="30">3 (oz)</option>
-                            <option value="40">4 (oz)</option>
+                            <option value="1">1 (oz)</option>
+                            <option value="2">2 (oz)</option>
+                            <option value="3">3 (oz)</option>
+                            <option value="4">4 (oz)</option>
                         </select>
                     </div>
                     <div class="col-auto">
@@ -134,15 +141,16 @@ function Tortitas() {
                             
                         </select>
                     </div>
-                   
-                    <h5>Carbohidratos(gr):</h5>
+                    <div className='cardResults'>
+                    <h8>Carbohidratos(gr):</h8>
                     <input type="text" id="carbs" value={currentCarbs}  readOnly />
-                    <h5>Proteína (gr):</h5>
+                    <h8>Proteínas (gr):</h8>
                     <input type="text" id="protein" value={currentProtein}  readOnly />
-                    <h5>Grasas (gr):</h5>
+                    <h8>Grasas (gr):</h8>
                     <input type="text" id="fats" value={currentFats}  readOnly />
-                    <h5>Calorías totales:</h5>
+                    <h7>Calorías totales:</h7>
                     <input type="text" id="calories" value={currentCalories}  readOnly />
+                    </div>
                     <button type="submit" className="btn btn-primary" onClick={CalculateMacros}> 
                         guardar 
                     </button>
