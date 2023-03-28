@@ -1,7 +1,9 @@
 import React from 'react'
 import CalculateMacros from '../components/info/CalculateMacros'
-import Tabs from '../components/info/dietsResults/Tabs'
+import Tabs from '../components/dietsResults/Tabs'
 import FormCalc from '../components/info/FormCalc'
+import MealMaker from '../components/meal_maker/MealMaker'
+import Tortitas from '../components/info/meals/Tortitas'
 
 function Home() {
     
@@ -9,10 +11,10 @@ function Home() {
     <div>
       <h1>Generar dietas</h1>
       
-      
+      <Tortitas/>
       
       <FormCalc/>
-      <Tabs/>
+      <MealMaker/>
     </div>
   )
 }
