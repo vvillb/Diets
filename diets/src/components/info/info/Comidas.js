@@ -48,8 +48,36 @@ const Comidas=[{
             id:2_4,
             name:"Filetes de pollo o pavo",
             ingredients:[Food[1_1],Food[2_5]]
-        },
+        },{
+            id:2_5,
+            name:"Pasta con pavo y queso",
+            ingredients:[Food[2_5],Food[3_9],Food[2_5]]
+        },{
+            id:2_6,
+            name:"Pescado blanco",
+            ingredients:[Food[1_10],Food[1_6],Food[2_4],Food[3_10],Food[3_7]]
+        },{
+            id:2_7,
+            name:"Gnochi con pollo",
+            ingredients:[Food[1_1],Food[2_8],Food[3_4]]
+        },{
+            id:2_8,
+            name:"Filetes de ternera con patatas",
+            ingredients:[Food[1_2],Food[2_6],Food[3_10]]
+        }
     ]
+},{
+    id:3,
+    name:"Snack",
+    items:[{
+        id:3_1,
+        name:"Scoop de batido de proteínas",
+        ingredients:[Food[1_8]]
+    },{
+        id:3_2,
+        name:"Batido de proteínas con dátiles",
+        ingredients:[Food[1_8],Food[2_10]]
+    }]
 }]
 
 export default Comidas
