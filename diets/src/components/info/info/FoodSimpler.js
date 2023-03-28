@@ -131,9 +131,9 @@ const FoodSimpler =[
                 unidad:"rebanada",
                 cantidadMacrosUnidad:1,
                 gramosPorUnidad:58,
-                carbs:23.2,
-                prot:5.8,
-                fats:2
+                carbs:11.6,
+                prot:2.9,
+                fats:1
             },{
                 id:16,
                 name:"Granola o muesli",
@@ -197,7 +197,7 @@ const FoodSimpler =[
                 cantidadMacrosUnidad:100,
                 carbs:66.05,
                 prot:14,
-                fats:61
+                fats:6.1
             },{
                 id:24,
                 name:"Harina de Avena",

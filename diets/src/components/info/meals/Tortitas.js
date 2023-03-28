@@ -3,7 +3,7 @@ import FoodSimpler from '../info/FoodSimpler';
 import Card from 'react-bootstrap/Card';
 import '../../../App.css'
 
-function Tortitas() {
+function Tortitas(props) {
   const [currentCarbs, setCurrentCarbs] = useState(0);
   const [currentProtein, setCurrentProtein] = useState(0);
   const [currentFats, setCurrentFats] = useState(0);
@@ -14,6 +14,9 @@ function Tortitas() {
   const [harinaDeAvena,setHarinaDeAvena]=useState(50); 
   const [chocolate,setChocolate]=useState(2);
   const [quesoFrescoBatido,setQuesoFrescoBatido]=useState(150);
+  const[protein1_1,setProtein1_1]=useState(0);
+  const[carbs1_1,setCarbs1_1]=useState(0);
+  const[fats1_1,setFats1_1]=useState(0);
 
   useEffect(()=>{
     document.querySelector('#carbs').value="";
@@ -27,8 +30,10 @@ function Tortitas() {
   useEffect(()=>{
     document.querySelector('#calories').value="";
   },[])
+
+  //to pass props to parent component
   
-  
+  //
   const CalculateMacros=(e)=>{
     e.preventDefault();
     let protein = Math.floor((FoodSimpler[11].prot*huevos)+(FoodSimpler[12].prot*claras/100)+(FoodSimpler[32].prot*lecheDeAlmendras/100)+(FoodSimpler[24].prot*harinaDeAvena/100)+(FoodSimpler[34].prot*chocolate)+(FoodSimpler[7].prot*quesoFrescoBatido/100));
@@ -38,10 +43,14 @@ function Tortitas() {
         setCurrentCalories(calories);
         setCurrentCarbs(carbs);
         setCurrentProtein(protein);
-        setCurrentFats(fats);   
+        setCurrentFats(fats);
+        setProtein1_1(protein);
+        setCarbs1_1(carbs);
+        setFats1_1(fats);
+        props.onMacrosChange(protein1_1, carbs1_1, fats1_1);   
   }
 
-  
+
 
 
 
@@ -161,4 +170,4 @@ function Tortitas() {
   )
 }
 
-export default Tortitas
+export default Tortitas 
