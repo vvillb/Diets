@@ -25,7 +25,7 @@ const Comidas=[{
         },{
             id:1_5,
             name:"Smoothie Bowl",
-            ingredients:[Food[1_7],Food[2_3],Food[3_3],Food[4_2],Food[4_3]]
+            ingredients:[Food[1_7],Food[2_3],Food[3_3],Food[2_14],Food[2_15]]
         }
     ]
 },{

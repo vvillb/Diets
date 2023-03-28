@@ -207,6 +207,30 @@ const Food =[
             carbs:56.6,
             prot:11.6,
             fats:5.3
+        },{
+            id:2_13,
+            name:"Plátano",    
+            unidad:"plátano",
+            cantidadMacrosUnidad:1,
+            carbs:31.06,
+            prot:1.48,
+            fats:0.45       
+        },{
+            id:2_14,
+            name:"Arándanos",
+            unidad:"gr",
+            cantidadMacrosUnidad:100,
+            carbs:14.49,
+            prot:0.74,
+            fats:0.33
+        },{
+            id:2_15,
+            name:"Plátano congelado",
+            unidad:"",
+            cantidadMacrosUnidad:100,
+            carbs:4.7,
+            prot:5,
+            fats:0.1
         }]
 },{
     id:3,

@@ -87,6 +87,7 @@ function FormCalc() {
  
 
   return (
+    <>
     <form  class="row gy-2 gx-3 align-items-center">
       <div class="col-auto">
         <label htmlFor="age">Age:</label>
@@ -152,6 +153,10 @@ function FormCalc() {
         Calcular 
       </button>
     </form>
+    <div>
+      <h1>Recuerda apuntar los resultados!</h1>
+    </div>
+    </>
   );
 }
 export default FormCalc;
