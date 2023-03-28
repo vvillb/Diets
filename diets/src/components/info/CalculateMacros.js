@@ -45,5 +45,5 @@ const CalculateMacros = (age, gender, height, weight, activityLevel) => {
   console.log(`Protein: ${protein}g`);
   console.log(`Fat: ${fat}g`);
   console.log(`Carbs: ${carbs}g`);
-}`+`
+}
 export default CalculateMacros

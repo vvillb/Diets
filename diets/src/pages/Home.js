@@ -1,7 +1,7 @@
 import React from 'react'
 import CalculateMacros from '../components/info/CalculateMacros'
+import Tabs from '../components/info/dietsResults/Tabs'
 import FormCalc from '../components/info/FormCalc'
-import InputFormHOC from '../components/info/InputFormHOC'
 
 function Home() {
     
@@ -12,6 +12,7 @@ function Home() {
       
       
       <FormCalc/>
+      <Tabs/>
     </div>
   )
 }
