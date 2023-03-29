@@ -3,6 +3,8 @@ import Table from 'react-bootstrap/Table';
 import Tortitas from '../info/meals/Tortitas';
 import Poke from '../info/meals/Poke';
 import FormCalc from '../info/FormCalc';
+import CalculateMacros from '../withPython/meals/CalculateMacros';
+
 
 
 
@@ -23,17 +25,21 @@ function MealMaker() {
         setFruit(fruit);
       }
 
-console.log("la proteína es")
-console.log(protein)
-console.log("y los carbos y grasas:")
-console.log(carbs,fats)
-console.log("scoops y fruta:")
-console.log(scoops,fruit)
+
+
+const distribution= CalculateMacros(carbs, fats, protein,scoops,fruit);
 
   return (
     <div>
       <div>
         <FormCalc onMacrosChange={handleMacrosChange}/>
+      </div>
+      <div>
+        <p>La distribución de los macros en las comidas será: 
+          Desayuno: {distribution.targetBreakfastCarbs} gramos de hidratos, 
+          {distribution.targetBreakfastProtein} gramos de proteína y {distribution.targetBreakfastFats}
+          gramos de grasas
+        </p>
       </div>
       <Table  striped bordered hover variant="dark">
         <thead>
