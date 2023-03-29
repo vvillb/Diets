@@ -14,8 +14,8 @@ function Home() {
       <h1>Generar dietas</h1>
       
       <tes/>
-      <TestMacroCalc/>
-      <FormCalc/>
+      
+     
       <MealMaker/>
     </div>
   )

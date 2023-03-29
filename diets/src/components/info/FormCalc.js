@@ -1,12 +1,23 @@
 import React,{useState, useEffect} from 'react';
 
 
-function FormCalc() {
+function FormCalc(props) {
   const [currentCarbs, setCurrentCarbs] = useState(0);
   const [currentProtein, setCurrentProtein] = useState(0);
   const [currentFats, setCurrentFats] = useState(0);
   const [currentCalories, setCurrentCalories] = useState(0);
   const [currentName, setCurrentName] = useState("");
+  const [age,setAge]=useState(25);
+  const [gender,setGender]=useState("");
+  const [weight,setWeight]=useState(80);
+  const [height,setHeight]=useState(180);
+  const [activityLevel,setActivityLevel]=useState(3);
+  const [scoops,setScoops]=useState(1);
+  const [fruit,setFruit]=useState(2);
+
+
+  
+  
 
   useEffect(()=>{
     document.querySelector('#carbs').value="";
@@ -19,6 +30,12 @@ function FormCalc() {
   },[])
   useEffect(()=>{
     document.querySelector('#calories').value="";
+  },[])
+  useEffect(()=>{
+    document.querySelector('#scoops').value="";
+  },[])
+  useEffect(()=>{
+    document.querySelector('#fruit').value="";
   },[])
   
   
@@ -81,7 +98,10 @@ function FormCalc() {
     setCurrentCalories(calories);
     setCurrentCarbs(carbs);
     setCurrentProtein(protein);
-    setCurrentFats(fats);   
+    setCurrentFats(fats);  
+    setScoops(scoops);
+    setFruit(fruit); 
+    props.onMacrosChange(protein, carbs, fats,scoops,fruit); 
   }
 
  
@@ -95,7 +115,8 @@ function FormCalc() {
           type="number"
           className="form-control"
           id="age"
-          
+          value={age}
+          onChange={event=>setAge(event.target.value)}
         />
       </div>
       <div class="col-auto">
@@ -103,6 +124,8 @@ function FormCalc() {
         <select
           className="form-control"
           id="gender"
+          value={gender}
+          onChange={event=>setGender(event.target.value)}
           
         >
           <option value="">Select Gender</option>
@@ -117,6 +140,8 @@ function FormCalc() {
           type="number"
           className="form-control"
           id="weight"
+          value={weight}
+          onChange={event=>setWeight(event.target.value)}
           
         />
       </div>
@@ -126,6 +151,8 @@ function FormCalc() {
           type="number"
           className="form-control"
           id="height"
+          value={height}
+          onChange={event=>setHeight(event.target.value)}
           
         />
       </div>
@@ -137,6 +164,8 @@ function FormCalc() {
           id="activityLevel"
           min="1"
           max="5"
+          value={activityLevel}
+          onChange={event=>setActivityLevel(event.target.value)}
           
         />
       </div>
@@ -148,6 +177,31 @@ function FormCalc() {
       <input type="text" id="fats" value={currentFats}  readOnly />
       <h5>Calorías totales:</h5>
       <input type="text" id="calories" value={currentCalories}  readOnly />
+      <div class="col-auto">
+        <label>Scoops de proteína:</label>
+        <select
+          className="form-control"
+          id="scoops"
+          value={scoops}
+          onChange={event=>setScoops(event.target.value)}
+          
+        >
+          <option value="1"> 1</option>
+          <option value="2">2</option>
+          
+        </select>
+      </div>
+      <div class="col-auto">
+        <label >Porciones de fruta:</label>
+        <select
+          className="form-control"
+          id="fruit"
+          onChange={event=>setFruit(event.target.value)}
+        >
+          <option value="1">1 (30 gramos de hidratos) </option>
+          <option value="2">2 (60 gramos de hidratos)</option>
+         </select>
+      </div>
 
       <button type="submit" className="btn btn-primary" onClick={CalculateMacros}> 
         Calcular 
