@@ -4,6 +4,7 @@ import Tortitas from '../info/meals/Tortitas';
 import Poke from '../info/meals/Poke';
 import FormCalc from '../info/FormCalc';
 import CalculateMacros from '../withPython/meals/CalculateMacros';
+import TostasJamonCocido from '../withPython/meals/Desayunos/TostasJamonCocido';
 
 
 
@@ -25,7 +26,7 @@ function MealMaker() {
         setFruit(fruit);
       }
 
-
+const tostas=TostasJamonCocido(TostasJamonCocido(11.6,2.9,1,0.15,1.7,0.3,0,0,4.5,carbs,protein,fats)); 
 
 const distribution= CalculateMacros(carbs, fats, protein,scoops,fruit);
 
@@ -48,77 +49,11 @@ const distribution= CalculateMacros(carbs, fats, protein,scoops,fruit);
           
         </p>
       </div>
-      <Table  striped bordered hover variant="dark">
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>Desayuno</th>
-          <th>Comida 1</th>
-          <th>Comida 2</th>
-          <th>Snack post-entreno</th>
-          <th>Fruta</th>
-          <th>Totales del día</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>opción 1</td>
-                <td>
-                    
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <div>
-                        <div>
-                          <h8>Calorías:</h8>   
-                        </div>
-                        <div>
-                          <h8>Proteínas:{protein}</h8>  
-                        </div>
-                        <div>
-                          <h8>Hidratos:{carbs}</h8>  
-                        </div>
-                        <div>
-                           <h8>Grasas:{fats}</h8> 
-                        </div>                        
-                    </div>
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>opción 2</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>opción 3</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>opción 4</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-      </Table>
-
-      
+     <div>
+      <h2>Desayunos:</h2>
+     </div>
+      <h3>Tostadas con jamón cocido y aceite de oliva</h3>
+      {tostas}
     </div>
   )
 }
