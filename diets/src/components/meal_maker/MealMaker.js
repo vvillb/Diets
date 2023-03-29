@@ -38,7 +38,14 @@ const distribution= CalculateMacros(carbs, fats, protein,scoops,fruit);
         <p>La distribución de los macros en las comidas será: 
           Desayuno: {distribution.targetBreakfastCarbs} gramos de hidratos, 
           {distribution.targetBreakfastProtein} gramos de proteína y {distribution.targetBreakfastFats}
-          gramos de grasas
+          gramos de grasas. Comida: {distribution.targetLunchDinnerCarbs} gramos de hidratos, 
+          {distribution.targetLunchDinnerProtein} gramos de proteína y {distribution.targetLunchDinnerFats} gramos de grasas.
+          E igualmente para la cena: {distribution.targetLunchDinnerCarbs} gramos de hidratos, 
+          {distribution.targetLunchDinnerProtein} gramos de proteína y {distribution.targetLunchDinnerFats} gramos de grasas.
+          Tomando en cuenta que se han cogido {fruit} porciones de fruta,  las cuales
+            restan { 30*fruit} grs de carbohidratos, y {scoops} de proteína, que restan unos  
+            { 23*scoops} gramos de proteína.
+          
         </p>
       </div>
       <Table  striped bordered hover variant="dark">
