@@ -1,49 +1,48 @@
 
-
-import React from 'react'
-
-const CalculateMacros = (age, gender, height, weight, activityLevel) => {
-  let bmr;
-  let tdee;
-
-  // Determine BMR based on gender
-  if (gender === 'male') {
-    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-  } else {
-    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+function CalculateMacros(dailyCarbs, dailyFats, dailyProteins, proteinScoops, fruitPortions) {
+    // Calculate daily protein target
+    let dailyProteinTarget = dailyProteins;
+    if (proteinScoops === 1) {
+      dailyProteinTarget -= 23;
+    } else {
+      dailyProteinTarget -= 46;
+    }
+  
+    // Calculate daily carb target
+    let dailyCarbTarget = dailyCarbs;
+    if (fruitPortions === 1) {
+      dailyCarbTarget -= 30;
+    } else {
+      dailyCarbTarget -= 60;
+    }
+  
+    // Calculate remaining daily fat target
+    const dailyFatTarget = dailyFats;
+  
+    // Calculate target macros for breakfast
+    const targetBreakfastCarbs = Math.round(0.22 * dailyCarbTarget);
+    const targetBreakfastProtein = Math.round(0.22 * dailyProteinTarget);
+    const targetBreakfastFats = Math.round(0.22 * dailyFatTarget);
+  
+    // Calculate remaining daily macros after breakfast
+    const remainingCarbs = dailyCarbTarget - targetBreakfastCarbs;
+    const remainingProteins = dailyProteinTarget - targetBreakfastProtein;
+    const remainingFats = dailyFatTarget - targetBreakfastFats;
+  
+    // Calculate target macros for lunch and dinner
+    const targetLunchDinnerCarbs = Math.round(0.39 * remainingCarbs);
+    const targetLunchDinnerProtein = Math.round(0.39 * remainingProteins);
+    const targetLunchDinnerFats = Math.round(0.39 * remainingFats);
+  
+    return {
+      targetBreakfastCarbs,
+      targetBreakfastProtein,
+      targetBreakfastFats,
+      targetLunchDinnerCarbs,
+      targetLunchDinnerProtein,
+      targetLunchDinnerFats,
+    };
   }
 
-  // Determine TDEE based on activity level
-  switch (activityLevel) {
-    case '1':
-      tdee = bmr * 1.2;
-      break;
-    case '2':
-      tdee = bmr * 1.375;
-      break;
-    case '3':
-      tdee = bmr * 1.55;
-      break;
-    case '4':
-      tdee = bmr * 1.725;
-      break;
-    case '5':
-      tdee = bmr * 1.9;
-      break;
-    default:
-      tdee = bmr * 1.2;
-      break;
-  }
-
-  // Calculate macro needs based on TDEE
-  const protein = Math.round(0.825 * weight);
-  const fat = Math.round(0.25 * tdee / 9);
-  const carbs = Math.round((tdee - (protein * 4) - (fat * 9)) / 4);
-
-  // Log the results to the console
-  console.log(`Daily macros needs for a ${gender} with a weight of ${weight}kg, height of ${height}cm, age of ${age}, and activity level of ${activityLevel}:`);
-  console.log(`Protein: ${protein}g`);
-  console.log(`Fat: ${fat}g`);
-  console.log(`Carbs: ${carbs}g`);
-}
-export default CalculateMacros
+  export default CalculateMacros;
+  
