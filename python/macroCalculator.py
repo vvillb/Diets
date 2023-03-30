@@ -16,9 +16,8 @@ def calculate_macro_split(carbs_pasta, protein_pasta, fat_pasta,
     amounts = np.linalg.lstsq(foods.T, goals, rcond=None)[0]
 
     # Print the grams of each food item
-    print (f"Pasta: {amounts[0]:.2f} grams")
-    print(f"Chicken: {amounts[1]:.2f} grams")
-    print(f"Mozzarella: {amounts[2]:.2f} grams")
+    return (f"Pasta: {amounts[0]:.2f} grams, Chicken: {amounts[1]:.2f} grams, Mozzarella: {amounts[2]:.2f} grams")
+  
 
     
 

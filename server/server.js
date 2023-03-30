@@ -1,26 +1,26 @@
 const express = require('express');
 const cors = require('cors');
-
+const { spawn } = require('child_process');
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
-/*Now, we will create an endpoint /message that will return a JSON object with the message 
-Hello from server!. We are using app.get() to create a GET route. It takes two arguments:
-    1 The path of the endpoint which in our case is just /message.
-    2 The callback which can be a middleware function or a series/array of middleware functions.*/
-
-
-app.get('/message', (req, res) => {
-    res.json({ message: "Hello from server!" });
-});
-/*To start the server we will use app.listen() which takes two arguments:
-
-    The port number on which the server will run. In our case, it is 8000.
-     callback function will be called when the server starts which in our 
-     case will just log the message that the server is running.*/
-
-app.listen(8000, () => {
-    console.log(`Server is running on port 8000.`);
+app.post('/api/calculate-macros', (req, res) => {
+    const { carbs_pasta, protein_pasta, fat_pasta, carbs_chicken, protein_chicken, fat_chicken, carbs_mozzarella, protein_mozzarella, fat_mozzarella, carbs_goal, protein_goal, fat_goal } = req.body;
+  
+    const pythonProcess = spawn('python', ['../python/macroCalculator.py', carbs_pasta, protein_pasta, fat_pasta, carbs_chicken, protein_chicken, fat_chicken, carbs_mozzarella, protein_mozzarella, fat_mozzarella, carbs_goal, protein_goal, fat_goal]);
+  
+    pythonProcess.stdout.on('data', (data) => {
+      const result = data.toString();
+      res.send(result);
+    });
+  
+    pythonProcess.stderr.on('data', (data) => {
+      console.error(`stderr: ${data}`);
+    });
+  
   });
+  
+  app.listen(port, () => console.log(`Server started on port ${port}`));
