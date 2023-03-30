@@ -47,11 +47,11 @@ const Comidas=[{
         },{
             id:2_4,
             name:"Filetes de pollo o pavo",
-            ingredients:[Food[1],Food[18]]
+            ingredients:[Food[1_1],Food[2_5]]
         },{
             id:2_5,
             name:"Pasta con pavo y queso",
-            ingredients:[Food[1],Food[36],Food[18]]
+            ingredients:[Food[2_5],Food[3_9],Food[2_5]]
         },{
             id:2_6,
             name:"Pescado blanco",
