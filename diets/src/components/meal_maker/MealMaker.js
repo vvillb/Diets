@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import Table from 'react-bootstrap/Table';
 import Tortitas from '../info/meals/Tortitas';
 import Poke from '../info/meals/Poke';
-import FormCalc from '../info/FormCalc';
 
 
 
@@ -10,31 +9,23 @@ function MealMaker() {
     const [protein, setProtein] = useState(0);
     const [carbs, setCarbs] = useState(0);
     const [fats, setFats] = useState(0);
-    const[scoops,setScoops]=useState(1);
-    const[fruit,setFruit]=useState(2);
+    const [protein1_1, setProtein1_1] = useState(0);
+    const [carbs1_1, setCarbs1_1] = useState(0);
+    const [fats1_1, setFats1_1] = useState(0);
+    const [protein2_1, setProtein2_1] = useState(0);
+    const [carbs2_1, setCarbs2_1] = useState(0);
+    const [fats2_1, setFats2_1] = useState(0);
 
-    
-
-    function handleMacrosChange(protein, carbs, fats,scoops,fruit) {
-        setProtein(protein);
-        setCarbs(carbs);
-        setFats(fats);
-        setScoops(scoops);
-        setFruit(fruit);
+    function handleMacrosChange(proteinValue, carbsValue, fatsValue) {
+        setProtein((prevProtein)=>prevProtein+protein1_1+protein2_1);
+        setCarbs(carbsValue+carbs1_1+carbs2_1);
+        setFats(fatsValue+fats1_1+fats2_1);
       }
 
-console.log("la proteína es")
-console.log(protein)
-console.log("y los carbos y grasas:")
-console.log(carbs,fats)
-console.log("scoops y fruta:")
-console.log(scoops,fruit)
+
 
   return (
     <div>
-      <div>
-        <FormCalc onMacrosChange={handleMacrosChange}/>
-      </div>
       <Table  striped bordered hover variant="dark">
         <thead>
         <tr>
@@ -51,12 +42,12 @@ console.log(scoops,fruit)
             <tr>
                 <td>opción 1</td>
                 <td>
-                    
+                    <Tortitas onMacrosChange={handleMacrosChange} />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><Poke onMacrosChange={handleMacrosChange}/></td>
+                <td><Tortitas onMacrosChange={handleMacrosChange}/></td>
+                <td><Tortitas onMacrosChange={handleMacrosChange}/></td>
+                <td><Tortitas onMacrosChange={handleMacrosChange}/></td>
                 <td>
                     <div>
                         <div>
