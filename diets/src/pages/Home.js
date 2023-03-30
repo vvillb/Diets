@@ -5,7 +5,6 @@ import FormCalc from '../components/info/FormCalc'
 import MealMaker from '../components/meal_maker/MealMaker'
 import Tortitas from '../components/info/meals/Tortitas'
 import MacroSplitCalculator from '../components/info/MacroSplitCalculator'
-import TestMacroCalc from '../components/info/TestMacroCalc'
 
 function Home() {
     
@@ -13,8 +12,8 @@ function Home() {
     <div>
       <h1>Generar dietas</h1>
       
-      <tes/>
-      <TestMacroCalc/>
+      <MacroSplitCalculator/>
+      
       <FormCalc/>
       <MealMaker/>
     </div>

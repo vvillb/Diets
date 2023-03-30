@@ -3,7 +3,7 @@ import { loadPyodide } from "pyodide";
 
 
 
-function MacroSplitCalculator(food1Carbs, food1Proteins,food1Fats,food2Carbs, food2Proteins,food2Fats,food3Carbs, food3Proteins,food3Fats,targetCarbs,targetProtein,targetFat) {
+function MacroSplitCalculator() {
     const [result, setResult] = useState(null);
 
     const calculateMeal = async () => {
@@ -46,8 +46,11 @@ function MacroSplitCalculator(food1Carbs, food1Proteins,food1Fats,food2Carbs, fo
   
       // Call the Python function
       const calculate_meal = pyodide.globals.get("calculate_macro_split");
-        
-        const result = calculate_meal(food1Carbs, food1Proteins,food1Fats,food2Carbs, food2Proteins,food2Fats,food3Carbs, food3Proteins,food3Fats,targetCarbs,targetProtein,targetFat);
+        const chickenData = [0.005, 0.22, 0.018];
+        const mozzarellaData = [0.02, 0.17, 0.14];
+        const pastaData = [0.67, 0.12, 0.019];
+        const targets = [50, 43, 10];
+        const result = calculate_meal(0.005, 0.22, 0.018,0.02, 0.17, 0.14,0.67, 0.12, 0.019,50, 43, 10);
   
       // Update the state with the result
       setResult(result);
