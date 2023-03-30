@@ -12,7 +12,7 @@ function Home() {
     <div>
       <h1>Generar dietas</h1>
       
-      
+      <tes/>
       
      
       <MealMaker/>
