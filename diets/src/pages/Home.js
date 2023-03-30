@@ -1,4 +1,5 @@
 import React from 'react'
+import CalculateMacros from '../components/info/CalculateMacros'
 import Tabs from '../components/dietsResults/Tabs'
 import FormCalc from '../components/info/FormCalc'
 import MealMaker from '../components/meal_maker/MealMaker'
