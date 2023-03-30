@@ -187,6 +187,7 @@ function FormCalc(props) {
         <select
           className="form-control"
           id="fruit"
+          value={fruit}
           onChange={event=>setFruit(event.target.value)}
         >
           <option value="1">1 (30 gramos de hidratos) </option>
