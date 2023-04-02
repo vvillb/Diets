@@ -41,6 +41,10 @@ function CalculateMacros(dailyCarbs, dailyFats, dailyProteins, proteinScoops, fr
       targetLunchDinnerCarbs,
       targetLunchDinnerProtein,
       targetLunchDinnerFats,
+      dailyFatTarget,
+      dailyCarbTarget,
+      dailyProteinTarget
+
     };
   }
 

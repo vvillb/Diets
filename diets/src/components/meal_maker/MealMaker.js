@@ -26,7 +26,9 @@ function MealMaker() {
         <FormCalc onMacrosChange={handleMacrosChange}/>
       </div>
       <div>
-        <p>La distribución de los macros en las comidas será: 
+        <p>Los macros diarios para las comidas son: {distribution.dailyCarbsTarget} gramos de hidratos, {distribution.dailyProteinTarget} gramos 
+          de proteínas y {distribution.dailyFatTarget} gramos de grasas.
+          La distribución de los macros en las comidas será: 
           Desayuno: {distribution.targetBreakfastCarbs} gramos de hidratos, 
           {distribution.targetBreakfastProtein} gramos de proteína y {distribution.targetBreakfastFats}
           gramos de grasas. Comida: {distribution.targetLunchDinnerCarbs} gramos de hidratos, 
@@ -40,7 +42,7 @@ function MealMaker() {
       </div>
 
       <div>
-        <TestPyodide var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+        <TestPyodide var1={distribution.dailyCarbTarget} var2={distribution.dailyProteinTarget} var3={distribution.dailyFatTarget}/>
       </div>
     </div>
   )

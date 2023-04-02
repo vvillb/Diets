@@ -4,9 +4,9 @@ import numpy as np
 def func():
     global var1, var2, var3
     # Define the nutritional content of each food item as a matrix
-    foods = np.array([[0.67, 0.12, 0.019],
-    [0, 0.3076, 0.004],
-    [0,0.27,0.26]])
+    foods = np.array([[0.67, 0.012, 0.019],
+    [0, 30.76, 4],
+    [0,5.2,5.4]])
 
     # Define the desired nutritional goals as a vector
     goals = np.array([var1, var2, var3])
@@ -15,7 +15,8 @@ def func():
     amounts = np.linalg.lstsq(foods.T, goals, rcond=None)[0]
 
     # Print the grams of each food item
-    return (f"Pasta: {amounts[0]:.2f} grams, Chicken: {amounts[1]:.2f} grams, Mozzarella: {amounts[2]:.2f} grams")
+    return (f"OPCIONES DE DESYAYUNOS:"
+            f"Pasta: {amounts[0]:.2f} grams, Chicken: {amounts[1]:.2f} filetes, Mozzarella: {amounts[2]:.2f} lonchas")
   
 
 
