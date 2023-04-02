@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import CalculateMacros from '../info/CalculateMacros';
 import FormCalc from '../info/FormCalc';
 import TestPyodide from './TestPyodide';
+import PyodidePoke from './PyodidePoke';
 
 
 function MealMaker() {
@@ -42,7 +43,13 @@ function MealMaker() {
       </div>
 
       <div>
-        <TestPyodide var1={distribution.dailyCarbTarget} var2={distribution.dailyProteinTarget} var3={distribution.dailyFatTarget}/>
+        <h5>Opciones para el desayuno:</h5>
+        <TestPyodide var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
+      </div>
+      <div>
+        <h4>Opciones para la comida y cena :</h4>
+        <h5>Poke Bowl:</h5>
+        <PyodidePoke var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
       </div>
     </div>
   )

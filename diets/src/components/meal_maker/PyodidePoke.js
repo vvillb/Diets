@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import script from './main.py';
+import script from './pythonScripts/poke.py';
 
 
 
@@ -19,7 +19,7 @@ const runScript = async (code, props) => {
 
 
 
-const TestPyodide = ({ var1, var2, var3}) => {
+const PyodidePoke = ({ var1, var2, var3}) => {
   const [output, setOutput] = useState("(loading...)");
 
   useEffect(() => {
@@ -44,4 +44,4 @@ const TestPyodide = ({ var1, var2, var3}) => {
   );
 }
 
-export default TestPyodide;
+export default PyodidePoke;
