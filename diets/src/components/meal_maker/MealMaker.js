@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import CalculateMacros from '../info/CalculateMacros';
 import FormCalc from '../info/FormCalc';
+import TestPyodide from './TestPyodide';
 
 
 function MealMaker() {
@@ -38,7 +39,9 @@ function MealMaker() {
         </p>
       </div>
 
-      
+      <div>
+        <TestPyodide var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+      </div>
     </div>
   )
 }

@@ -7,12 +7,16 @@ const runScript = async (code, props) => {
   const pyodide = await window.loadPyodide({
     indexURL : "https://cdn.jsdelivr.net/pyodide/dev/full/"
   });
+
+ 
   pyodide.globals.set('var1', props.var1);
   pyodide.globals.set('var2', props.var2);
   pyodide.globals.set('var3', props.var3);
-
+  await pyodide.loadPackage("numpy");
+  
   return await pyodide.runPythonAsync(code);
 }
+
 
 
 const TestPyodide = ({ var1, var2, var3}) => {
