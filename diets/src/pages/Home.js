@@ -21,7 +21,7 @@ function Home() {
       }
 />*/
     <div>
-      <TestPyodide/>
+      <TestPyodide myVar={42} />
       <h1>Generar dietas</h1>
         <MealMaker/>
     </div>
