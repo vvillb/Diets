@@ -139,7 +139,7 @@ if (caloriasExtraObjetivo === '') {
     <>
     <form  class="row gy-2 gx-3 align-items-center">
       <div class="col-auto">
-        <label htmlFor="age">Age:</label>
+        <label htmlFor="age">Edad:</label>
         <input
           type="number"
           className="form-control"
@@ -149,21 +149,21 @@ if (caloriasExtraObjetivo === '') {
         />
       </div>
       <div class="col-auto">
-        <label htmlFor="gender">Gender:</label>
+        <label htmlFor="gender">Género:</label>
         <select
           className="form-control"
           id="gender"
           value={gender}
           onChange={event=>setGender(event.target.value)}
         >
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option value="">Seleccionar</option>
+          <option value="male">Hombre</option>
+          <option value="female">Mujer</option>
+          
         </select>
       </div>
       <div class="col-auto">
-        <label htmlFor="weight">Weight (kg):</label>
+        <label htmlFor="weight">Peso (kg):</label>
         <input
           type="number"
           className="form-control"
@@ -173,7 +173,7 @@ if (caloriasExtraObjetivo === '') {
         />
       </div>
       <div class="col-auto">
-        <label htmlFor="height">Height (cm):</label>
+        <label htmlFor="height">Altura (cm):</label>
         <input
           type="number"
           className="form-control"
@@ -182,8 +182,8 @@ if (caloriasExtraObjetivo === '') {
           onChange={event=>setHeight(event.target.value)}
         />
       </div>
-      <div class="col-auto">
-        <label htmlFor="activityLevel">Activity Level:</label>
+      <div class="col-auto d-flex flex-column">
+        <label htmlFor="activityLevel">Nivel de actividad:</label>
         <input
           type="range"
           className="form-control-range"
@@ -193,12 +193,19 @@ if (caloriasExtraObjetivo === '') {
           value={activityLevel}
           onChange={event=>setActivityLevel(event.target.value)}
         />
+         <div className="activity-tags">
+          <span className={activityLevel === "1" ? "active" : ""}>Sedentario</span>
+          <span className={activityLevel === "2" ? "active" : ""}>Ligera</span>
+          <span className={activityLevel === "3" ? "active" : ""}>Moderada</span>
+          <span className={activityLevel === "4" ? "active" : ""}>Intensa</span>
+          <span className={activityLevel === "5" ? "active" : ""}>Muy intensa</span>
+        </div>
       </div>
-      <h5>Calorías de mantenimeinto (Harrison & Benedict)</h5>
+      <h5>Calorías de mantenimeinto (Harrison & Benedict):</h5>
       <input type="text" id="currentTMB" value={currentTMB}  readOnly />
-      <h5>Calorías diarias (según nivel de actividad)</h5>
+      <h5>Calorías diarias (según nivel de actividad):</h5>
       <input type="text" id="currentDailyCalories" value={currentDailyCalories}  readOnly />
-      <h5>Calorías objetivo </h5>
+      <h5>Calorías objetivo: </h5>
       <input type="text" id="currentTargetCalories" value={currentTargetCalories}  readOnly />
 
       <h5>Carbohidratos(gr):</h5>

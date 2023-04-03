@@ -13,15 +13,15 @@ const Comidas=[{
         {
             id:1_2,
             name:"Tostadas con Jamón cocido",
-            ingredients:[Food[1_4],Food[2_2],[Food[3_2]]]
+            ingredients:[Food[1_4],Food[15],[Food[29]]]
         },{
             id:1_3,
             name:"Tostadas con Jamón Serrano y Tomate",
-            ingredients:[Food[1_5],Food[2_1],[Food[2_2]],Food[3_6],Food[3_11]]
+            ingredients:[Food[1_5],Food[2_1],[Food[15]],Food[33],Food[3_11]]
         },{
             id:1_4,
             name:"Huevos Revueltos",
-            ingredients:[Food[1_11],Food[1_7],[Food[2_2]],Food[3_6]]
+            ingredients:[Food[1_11],Food[1_7],[Food[15]],Food[33]]
         },{
             id:1_5,
             name:"Smoothie Bowl",
@@ -35,11 +35,11 @@ const Comidas=[{
         {
             id:2_1,
             name:"Poke Bowl",
-            ingredients:[Food[1_9],Food[2_11],Food[2_2],Food[3_2],Food[3_6]]
+            ingredients:[Food[9],Food[23],Food[15],Food[29],Food[33]]
         },{
-            id:2_2,
+            id:15,
             name:"Filetes de ternera o cerdo con Patatas",
-            ingredients:[Food[1_2],Food[2_6],Food[3_6],Food[1_6]]
+            ingredients:[Food[1_2],Food[2_6],Food[33],Food[1_6]]
         },{
             id:2_3,
             name:" Ensalada de garbanzos",
@@ -74,7 +74,7 @@ const Comidas=[{
         name:"Scoop de batido de proteínas",
         ingredients:[Food[1_8]]
     },{
-        id:3_2,
+        id:29,
         name:"Batido de proteínas con dátiles",
         ingredients:[Food[1_8],Food[2_10]]
     }]
