@@ -2,3 +2,20 @@
     border-color: red;
     background-color: #ffcccb;
 }
+.activity-tags {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    
+  }
+  
+  .activity-tags span {
+    cursor: pointer;
+  }
+  
+  .activity-tags span.active {
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+  }

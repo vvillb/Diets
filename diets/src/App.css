@@ -1,6 +1,7 @@
 *{
   background-color: #17171f;
   color:antiquewhite;
+  
 }
 
 .d-flex justify-content-between{
@@ -24,4 +25,12 @@
 
 .cardResults{
   display: block;
+}
+
+.homePage{
+  margin: 5%;
+}
+
+p{
+  text-align: justify;
 }

@@ -20,7 +20,7 @@ def func():
         error = np.abs(var1 - macros[0]) + np.abs(var2 - macros[1]) + np.abs(var3 - macros[2])
         return error
 
-    current_solution = np.array([1,10,10,1], dtype=int)
+    current_solution = np.array([1,2,10,1], dtype=int)
     current_score = evaluate_solution(current_solution)
 
     while True:

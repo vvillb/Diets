@@ -1,6 +1,6 @@
 import React from 'react'
 import MealMaker from '../components/meal_maker/MealMaker'
-
+import '../App.css'
 function Home() {
     
   return (
@@ -18,7 +18,7 @@ function Home() {
         print(data)`
       }
 />*/
-    <div>
+    <div className='homePage'>
      
       <h1>Generar dietas</h1>
         <MealMaker/>
