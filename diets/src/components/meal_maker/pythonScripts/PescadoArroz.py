@@ -1,0 +1,51 @@
+
+import numpy as np
+
+def func():
+    global var1, var2, var3
+    
+    food_macros = np.array([[0, 0.12, 0.018],
+    [0.77, 0.072,0.007],
+    [6,10,0.1],
+    [2.4,1.2,4.6]])
+
+    def get_macros(amounts):
+        return np.dot(amounts, food_macros)
+
+    def get_calories(macros):
+        return 4 * (macros[0] + macros[1]) + 9 * macros[2]
+
+    def evaluate_solution(solution):
+        macros = get_macros(solution)
+        error = np.abs(var1 - macros[0]) + np.abs(var2 - macros[1]) + np.abs(var3 - macros[2])
+        return error
+
+    current_solution = np.array([200,40,0,1], dtype=int)
+    current_score = evaluate_solution(current_solution)
+
+    while True:
+        neighbors = [current_solution + np.eye(4, dtype=int)[i] for i in range(4)]
+        neighbor_scores = [evaluate_solution(neighbor) for neighbor in neighbors]
+
+        min_score = min(neighbor_scores)
+        if min_score >= current_score:
+            break
+
+        current_solution = neighbors[np.argmin(neighbor_scores)]
+        current_score = min_score
+
+    macros = get_macros(current_solution)
+    calories = get_calories(macros)
+    amounts = current_solution
+    
+
+   
+    # Print the grams of each food item
+    return (f"{amounts[0]:d} gramos de pescado blanco, {amounts[1]:d} gramos de arroz, {amounts[2]:d} yogur de proteínas hacendado y {amounts[3]:d} cuadrado(s) de chocolate negro 85% (10gr/cuadrado). Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
+  
+
+
+var1 = globals().get('var1', 0)
+var2 = globals().get('var2', 0)
+var3 = globals().get('var3', 0)
+func()

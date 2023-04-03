@@ -6,6 +6,12 @@ import TostasJamonCocido from './mealsComponents/TostasJamonCocido';
 import TostasJamonSerrano from './mealsComponents/TostasJamonSerrano';
 import HuevosRevueltos from './mealsComponents/HuevosRevueltos';
 import SmoothieBowl from './mealsComponents/SmoothieBowl';
+import PastaPolloQueso from './mealsComponents/PastaPolloQueso';
+import PescadoArroz from './mealsComponents/PescadoArroz';
+import GnocchiPollo from './mealsComponents/GnocchiPollo';
+import TerneraPatataAceitunas from './mealsComponents/TerneraPatataAceitunas';
+import EnsaladaGarbanzos from './mealsComponents/EnsaladaGarbanzos';
+import TerneraPatataYogur from './mealsComponents/TerneraPatataYogur';
 
 
 function MealMaker() {
@@ -62,6 +68,18 @@ function MealMaker() {
         <h4>Opciones para la comida y cena :</h4>
         <h5>Poke Bowl:</h5>
         <PyodidePoke var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+        <h5>Pasta con pollo y queso</h5>
+        <PastaPolloQueso var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+        <h5>Pescado con arroz y aceitunas + chocolate 85% y yogur</h5>
+        <PescadoArroz var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+        <h5>Gnocchi con pollo</h5>
+        <GnocchiPollo var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+        <h5>Ternera con patatas y aceitunas</h5>
+        <TerneraPatataAceitunas var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+        <h5>Ensalada de garbanzos</h5>
+        <EnsaladaGarbanzos var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
+        <h5>Ternera con patatas y un yogur </h5>
+        <TerneraPatataYogur var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
       </div>
     </div>
   )
