@@ -3,6 +3,7 @@ import script from '../pythonScripts/tostasJamonCocido.py';
 
 
 
+
 const runScript = async (code, props) => {
   const pyodide = await window.loadPyodide({
     indexURL : "https://cdn.jsdelivr.net/pyodide/dev/full/"
@@ -21,22 +22,29 @@ const runScript = async (code, props) => {
 
 
 const TostasJamonCocido = ({ var1, var2, var3}) => {
-  const [output, setOutput] = useState("(loading...)");
+  const [output, setOutput] = useState("...");
+  const [buttonClicked, setButtonClicked] = useState(false);
 
-  useEffect(() => {
-    const run = async () => {
-      const scriptText = await (await fetch(script)).text();
-      const out = await runScript(scriptText,{ var1, var2, var3 });
-      setOutput(out);
-    }
-    run();
+// Move the useEffect code into a new function
+  const runPythonScript = async () => {
+    const scriptText = await (await fetch(script)).text();
+    const out = await runScript(scriptText, { var1, var2, var3 });
+    setOutput(out);
+  };
 
-  }, [var1, var2, var3]);
+
+    // Call the runPythonScript function when the button is clicked
+    const handleClick = () => {
+      if (!buttonClicked) {
+        runPythonScript();
+        setButtonClicked(true);
+      }
+    };
 
   return (
     <div className="App">
       <header className="App-header">
-        
+      <button onClick={handleClick}>Calcular las cantidades de esta comida</button>
         <p>
            {output}
         </p>
@@ -44,5 +52,6 @@ const TostasJamonCocido = ({ var1, var2, var3}) => {
     </div>
   );
 }
+
 
 export default TostasJamonCocido;

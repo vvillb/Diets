@@ -20,7 +20,7 @@ function MealMaker() {
     const [fats, setFats] = useState(0);
     const[scoops,setScoops]=useState(1);
     const[fruit,setFruit]=useState(2);
-
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
     function handleMacrosChange(protein, carbs, fats,scoops,fruit) {
       setProtein(protein);
@@ -28,6 +28,7 @@ function MealMaker() {
       setFats(fats);
       setScoops(scoops);
       setFruit(fruit);
+      setFormSubmitted(true);
     }
     const distribution= CalculateMacros(carbs, fats, protein,scoops,fruit);
   return (
@@ -36,6 +37,9 @@ function MealMaker() {
         <FormCalc onMacrosChange={handleMacrosChange}/>
       </div>
       <div>
+      {formSubmitted && (
+      <div>
+        <div>
         <p>Los macros diarios para las comidas son: {distribution.dailyCarbTarget} gramos de hidratos, {distribution.dailyProteinTarget} gramos 
           de proteínas y {distribution.dailyFatTarget} gramos de grasas.
           La distribución de los macros en las comidas será: 
@@ -49,8 +53,8 @@ function MealMaker() {
           restan { 30*fruit} grs de carbohidratos, y {scoops} de proteína, que restan unos  
           { 23*scoops} gramos de proteína.
         </p>
-      </div>
-
+        </div>
+      
       <div>
         <h4>Opciones para el desayuno:</h4>
         <h5>Tostadas con jamón cocido:</h5>
@@ -81,7 +85,11 @@ function MealMaker() {
         <h5>Ternera con patatas y un yogur </h5>
         <TerneraPatataYogur var1={distribution.targetLunchDinnerCarbs} var2={distribution.targetLunchDinnerProtein} var3={distribution.targetLunchDinnerFats}/>
       </div>
+       
+      </div>)}
     </div>
+    </div>
+    
   )
 }
 
