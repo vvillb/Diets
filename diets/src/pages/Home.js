@@ -1,7 +1,5 @@
 import React from 'react'
 import MealMaker from '../components/meal_maker/MealMaker'
-import Pyodide from '../components/meal_maker/Pyodide'
-import TestPyodide from '../components/meal_maker/TestPyodide'
 
 function Home() {
     

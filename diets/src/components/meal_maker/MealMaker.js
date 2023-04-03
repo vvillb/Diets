@@ -3,6 +3,7 @@ import CalculateMacros from '../info/CalculateMacros';
 import FormCalc from '../info/FormCalc';
 import TestPyodide from './TestPyodide';
 import PyodidePoke from './PyodidePoke';
+import TostasJamonCocido from './mealsComponents/TostasJamonCocido';
 
 
 function MealMaker() {
@@ -43,8 +44,12 @@ function MealMaker() {
       </div>
 
       <div>
-        <h5>Opciones para el desayuno:</h5>
-        <TestPyodide var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
+        <h4>Opciones para el desayuno:</h4>
+        <h5>Tostadas con jamón cocido:</h5>
+        <TostasJamonCocido var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
+        <h5>Tostadas con Jamón Serrano y tomate + copos de avena:</h5>
+        <h5>Smoothie Bowl:</h5>
+        <h5>Huevos Revueltos:</h5>
       </div>
       <div>
         <h4>Opciones para la comida y cena :</h4>
