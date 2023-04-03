@@ -5,8 +5,8 @@ def func():
     global var1, var2, var3
     
     food_macros = np.array([[11.6, 2.9, 1],
-    [0.15, 1.7, 0.3],
-    [0.054,0.24,0.56],
+    [0.05, 3, 1.8],
+    [0.059,0.14,0.07],
     [0,0,4.5]])
 
     def get_macros(amounts):
@@ -20,7 +20,7 @@ def func():
         error = np.abs(var1 - macros[0]) + np.abs(var2 - macros[1]) + np.abs(var3 - macros[2])
         return error
 
-    current_solution = np.array([1,2,10,1], dtype=int)
+    current_solution = np.array([1,2,20,1], dtype=int)
     current_score = evaluate_solution(current_solution)
 
     while True:
@@ -41,7 +41,7 @@ def func():
 
    
     # Print the grams of each food item
-    return (f"{amounts[0]:d} tostadas de pan de semillas o cereales, {amounts[1]:d} lonchas de jamón cocido (10gr/loncha), {amounts[2]:d} gramos de frutos secos (almendras/anacardos/cacahuetes/crema de cacahuete...), {amounts[3]:d} cucharaditas de aceite de oliva. Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
+    return (f"{amounts[0]:d} tostadas de pan de semillas o cereales, {amounts[1]:d} lonchas de jamón serrano  (10gr/loncha), {amounts[2]:d} gramos de copos de avena, {amounts[3]:d} cucharaditas de aceite de oliva. Las calorías resultantes serían {round(calories):d}, (un	vaso) 250ml	leche	desnatada. Puedes	añadirle 3-4	gr	cacao	desgrasado	y edulcorante,	o	un saborizante . Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
   
 
 
