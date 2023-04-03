@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
 import CalculateMacros from '../info/CalculateMacros';
 import FormCalc from '../info/FormCalc';
-import TestPyodide from './TestPyodide';
 import PyodidePoke from './PyodidePoke';
 import TostasJamonCocido from './mealsComponents/TostasJamonCocido';
-import TostasJamonCocidoCopy from './mealsComponents/TostasJamonCocidoCopy';
+import TostasJamonSerrano from './mealsComponents/TostasJamonSerrano';
+import HuevosRevueltos from './mealsComponents/HuevosRevueltos';
+import SmoothieBowl from './mealsComponents/SmoothieBowl';
 
 
 function MealMaker() {
@@ -51,9 +52,11 @@ function MealMaker() {
 
         <TostasJamonCocido var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
         <h5>Tostadas con Jamón Serrano y tomate + copos de avena:</h5>
-        <TostasJamonCocidoCopy var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
+        <TostasJamonSerrano var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
         <h5>Smoothie Bowl:</h5>
+        <SmoothieBowl var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
         <h5>Huevos Revueltos:</h5>
+        <HuevosRevueltos  var1={distribution.targetBreakfastCarbs} var2={distribution.targetBreakfastProtein} var3={distribution.targetBreakfastFats}/>
       </div>
       <div>
         <h4>Opciones para la comida y cena :</h4>

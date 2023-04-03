@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import script from '../pythonScripts/tostasJamonCocidoCopy.py';
+import script from '../pythonScripts/HuevosRevueltos.py';
 
 
 
@@ -20,7 +20,7 @@ const runScript = async (code, props) => {
 
 
 
-const TostasJamonCocidoCopy = ({ var1, var2, var3}) => {
+const HuevosRevueltos = ({ var1, var2, var3}) => {
   const [output, setOutput] = useState("(loading...)");
 
   useEffect(() => {
@@ -45,4 +45,4 @@ const TostasJamonCocidoCopy = ({ var1, var2, var3}) => {
   );
 }
 
-export default TostasJamonCocidoCopy;
+export default HuevosRevueltos;
