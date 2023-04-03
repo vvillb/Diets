@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Diets/static/css/main.903d9126.css",
+    "main.js": "/Diets/static/js/main.46091772.js",
+    "index.html": "/Diets/index.html",
+    "main.903d9126.css.map": "/Diets/static/css/main.903d9126.css.map",
+    "main.46091772.js.map": "/Diets/static/js/main.46091772.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.903d9126.css",
+    "static/js/main.46091772.js"
+  ]
+}
