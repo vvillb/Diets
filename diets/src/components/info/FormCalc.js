@@ -1,19 +1,23 @@
 import React,{useState, useEffect} from 'react';
-
+import './form.css'
 
 function FormCalc(props) {
   const [currentCarbs, setCurrentCarbs] = useState(0);
   const [currentProtein, setCurrentProtein] = useState(0);
   const [currentFats, setCurrentFats] = useState(0);
   const [currentCalories, setCurrentCalories] = useState(0);
+  const [caloriasExtraObjetivo, setCaloriasExtraObjetivo] = useState("");
   const [currentName, setCurrentName] = useState("");
-  const [age,setAge]=useState(25);
+  const [age,setAge]=useState("");
   const [gender,setGender]=useState("");
-  const [weight,setWeight]=useState(80);
-  const [height,setHeight]=useState(180);
+  const [weight,setWeight]=useState("");
+  const [height,setHeight]=useState("");
   const [activityLevel,setActivityLevel]=useState(3);
   const [scoops,setScoops]=useState(1);
   const [fruit,setFruit]=useState(2);
+  const [currentTMB,setCurrentTMB]=useState(0);
+  const [currentDailyCalories,setCurrentDailyCalories]=useState(0);
+  const[currentTargetCalories,setCurrentTargetCalories]=useState(0);
 
   useEffect(()=>{
     document.querySelector('#carbs').value="";
@@ -32,6 +36,9 @@ function FormCalc(props) {
   },[])
   useEffect(()=>{
     document.querySelector('#fruit').value="";
+  },[])
+  useEffect(()=>{
+    document.querySelector('#caloriasExtraObjetivo').value="";
   },[])
   
 
@@ -54,40 +61,67 @@ function FormCalc(props) {
     let currentActivityLevel=document.querySelector('#activityLevel').value
     if(currentActivityLevel==='')
     return;
-    let bmr;
-  let tdee;
 
-  // Determine BMR based on gender
-  if (currentGender === 'male') {
-    bmr = 10 * currentWeight + 6.25 * currentHeight - 5 * currentAge + 5;
-  } else {
-    bmr = 10 * currentWeight + 6.25 * currentHeight - 5 * currentAge - 161;
-  }
+ // Convert height from cm to inches
+  const heightInches = height / 2.54;
+ // Convert weight from kg to pound
+  const weightPounds = weight * 2.205;
+ 
+ 
+ 
+ // Calculate TMB using the Harrison y Benedict formula
+ let TMB;
+ if (currentGender === "male") {
+   TMB = Math.round(10*currentWeight+6.25*currentHeight-5*currentAge+5);
+ } else if (currentGender === "female") {
+   TMB = Math.round(10*currentWeight+6.25*currentHeight-5*currentAge-161);
+ }setCurrentTMB(TMB);
+ 
+  
 
-  // Determine TDEE based on activity level
-  switch (currentActivityLevel) {
-    case '1':
-      tdee = bmr * 1.2;
-      break;
-    case '2':
-      tdee = bmr * 1.375;
-      break;
-    case '3':
-      tdee = bmr * 1.55;
-      break;
-    case '4':
-      tdee = bmr * 1.725;
-      break;
-    case '5':
-      tdee = bmr * 1.9;
-      break;
-    default:
-      tdee = bmr * 1.2;
-      break;
-  }
-  let protein = Math.round(0.825 * currentWeight);
-  let fats = Math.round(0.25 * tdee / 9);
-  let carbs = Math.round((tdee - (protein * 4) - (fats * 9)) / 4);
+     // Multiply TMB by the activity level factor
+     let activityFactor;
+     switch (currentActivityLevel) {
+       case "1":
+         activityFactor = 1.2;
+         break;
+       case "2":
+         activityFactor = 1.375;
+         break;
+       case "3":
+         activityFactor = 1.55;
+         break;
+       case "4":
+         activityFactor = 1.725;
+         break;
+       case "5":
+         activityFactor = 1.9;
+         break;
+       default:
+         activityFactor = 1.2;
+         break;
+     }
+     let DailyCalories = Math.round(TMB * activityFactor);
+     setCurrentDailyCalories(DailyCalories);
+ console.log(currentActivityLevel)
+// Add caloriasExtraObjetivo to DailyCalories to get targetCalories
+const targetCalories = DailyCalories + parseInt(caloriasExtraObjetivo);
+if (caloriasExtraObjetivo === '') {
+  // Display a message if the caloriasExtraObjetivo is empty
+  setCurrentTargetCalories('apunta las calorías que quieres sumar o restar al objetivo');
+} else {
+  setCurrentTargetCalories(targetCalories);
+}
+// Calculate protein, fats, and carbohydrates
+
+
+
+  let protein = Math.round(weight * 2);
+  let fats = Math.round(weightPounds * 0.4);
+  const caloriasProteinas = protein * 4;
+  const caloriasGrasas = fats * 9;
+  const caloriasCarbos = targetCalories - caloriasProteinas - caloriasGrasas;
+  let carbs = Math.round(caloriasCarbos / 4);
   let calories=Math.round(4*carbs + 4*protein + 9*fats);
   let name=currentName;
     setCurrentCalories(calories);
@@ -105,7 +139,7 @@ function FormCalc(props) {
     <>
     <form  class="row gy-2 gx-3 align-items-center">
       <div class="col-auto">
-        <label htmlFor="age">Age:</label>
+        <label htmlFor="age">Edad:</label>
         <input
           type="number"
           className="form-control"
@@ -115,21 +149,21 @@ function FormCalc(props) {
         />
       </div>
       <div class="col-auto">
-        <label htmlFor="gender">Gender:</label>
+        <label htmlFor="gender">Género:</label>
         <select
           className="form-control"
           id="gender"
           value={gender}
           onChange={event=>setGender(event.target.value)}
         >
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option value="">Seleccionar</option>
+          <option value="male">Hombre</option>
+          <option value="female">Mujer</option>
+          
         </select>
       </div>
       <div class="col-auto">
-        <label htmlFor="weight">Weight (kg):</label>
+        <label htmlFor="weight">Peso (kg):</label>
         <input
           type="number"
           className="form-control"
@@ -139,7 +173,7 @@ function FormCalc(props) {
         />
       </div>
       <div class="col-auto">
-        <label htmlFor="height">Height (cm):</label>
+        <label htmlFor="height">Altura (cm):</label>
         <input
           type="number"
           className="form-control"
@@ -148,8 +182,8 @@ function FormCalc(props) {
           onChange={event=>setHeight(event.target.value)}
         />
       </div>
-      <div class="col-auto">
-        <label htmlFor="activityLevel">Activity Level:</label>
+      <div class="col-auto d-flex flex-column">
+        <label htmlFor="activityLevel">Nivel de actividad:</label>
         <input
           type="range"
           className="form-control-range"
@@ -159,7 +193,21 @@ function FormCalc(props) {
           value={activityLevel}
           onChange={event=>setActivityLevel(event.target.value)}
         />
+         <div className="activity-tags">
+          <span className={activityLevel === "1" ? "active" : ""}>Sedentario</span>
+          <span className={activityLevel === "2" ? "active" : ""}>Ligera</span>
+          <span className={activityLevel === "3" ? "active" : ""}>Moderada</span>
+          <span className={activityLevel === "4" ? "active" : ""}>Intensa</span>
+          <span className={activityLevel === "5" ? "active" : ""}>Muy intensa</span>
+        </div>
       </div>
+      <h5>Calorías de mantenimeinto (Harrison & Benedict):</h5>
+      <input type="text" id="currentTMB" value={currentTMB}  readOnly />
+      <h5>Calorías diarias (según nivel de actividad):</h5>
+      <input type="text" id="currentDailyCalories" value={currentDailyCalories}  readOnly />
+      <h5>Calorías objetivo: </h5>
+      <input type="text" id="currentTargetCalories" value={currentTargetCalories}  readOnly />
+
       <h5>Carbohidratos(gr):</h5>
       <input type="text" id="carbs" value={currentCarbs}  readOnly />
       <h5>Proteína (gr):</h5>
@@ -168,6 +216,16 @@ function FormCalc(props) {
       <input type="text" id="fats" value={currentFats}  readOnly />
       <h5>Calorías totales:</h5>
       <input type="text" id="calories" value={currentCalories}  readOnly />
+      <div class="col-auto">
+        <label>Calorías a sumar o restar según objetivo (incluye signo):</label>
+        <input
+          type="number"
+          className={`form-control${caloriasExtraObjetivo === '' ? ' text-danger' : ''}`}
+          id="caloriasExtraObjetivo"
+          value={caloriasExtraObjetivo}
+          onChange={event=>setCaloriasExtraObjetivo(event.target.value)}
+        />
+      </div>
       <div class="col-auto">
         <label>Scoops de proteína:</label>
         <select
