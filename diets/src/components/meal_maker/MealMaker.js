@@ -11,6 +11,7 @@ import GnocchiPollo from './mealsComponents/GnocchiPollo';
 import TerneraPatataAceitunas from './mealsComponents/TerneraPatataAceitunas';
 import EnsaladaGarbanzos from './mealsComponents/EnsaladaGarbanzos';
 import TerneraPatataYogur from './mealsComponents/TerneraPatataYogur';
+import TortitasAvena from './mealsComponents/TortitasAvena';
 
 
 function MealMaker() {
@@ -96,6 +97,9 @@ function MealMaker() {
         <TostasJamonSerrano var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
         <h5>Smoothie Bowl:</h5>
         <SmoothieBowl var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
+        <h5>Tortitas de avena con crema de cacahuete</h5>
+        <TortitasAvena var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
+
         <h5>Huevos Revueltos:</h5>
         <HuevosRevueltos  var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
       </div>
