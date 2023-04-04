@@ -237,6 +237,8 @@ if (caloriasExtraObjetivo === '') {
         >
           <option value="1"> 1</option>
           <option value="2">2</option>
+          <option value="3">3</option>
+
           
         </select>
       </div>
@@ -249,6 +251,8 @@ if (caloriasExtraObjetivo === '') {
         >
           <option value="1">1 (30 gramos de hidratos) </option>
           <option value="2">2 (60 gramos de hidratos)</option>
+          <option value="3">3 (90 gramos de hidratos)</option>
+
          </select>
       </div>
       <button type="submit" className="btn btn-primary" onClick={CalculateMacros}> 
