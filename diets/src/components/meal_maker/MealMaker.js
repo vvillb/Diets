@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react'
-import CalculateMacros from '../info/CalculateMacros';
 import FormCalc from '../info/FormCalc';
 import PyodidePoke from './PyodidePoke';
 import TostasJamonCocido from './mealsComponents/TostasJamonCocido';
@@ -43,7 +42,7 @@ function MealMaker() {
         (remainingCarbs - targetBreakfastCarbs) / 2
       );
       const remainingProteinForLunchDiner= Math.round(
-        (remainingCarbs - targetBreakfastProtein) / 2
+        (remainingProtein- targetBreakfastProtein) / 2
       );
       setTargetLunchDinnerCarbs(remainingCarbsForLunchDinner);
       setTargetLunchDinnerProtein(remainingProteinForLunchDiner);
@@ -57,8 +56,8 @@ function MealMaker() {
       setScoops(scoops);
       setFruit(fruit);
       setFormSubmitted(true);
-      setDailyCarbTarget(carbs-(30*fruit));
-      setDailyProteinTarget(protein -(23*scoops));
+      setDailyCarbTarget(carbs);
+      setDailyProteinTarget(protein);
       setDailyFatTarget(fats);
     }
   
@@ -72,7 +71,7 @@ function MealMaker() {
       {formSubmitted && (
       <div>
         <div>
-        <p>Los macros diarios para las comidas son: {dailyCarbTarget} gramos de hidratos, {dailyProteinTarget} gramos 
+        <p>Los macros diarios para las comidas son: {targetBreakfastCarbs+2*targetLunchDinnerCarbs} gramos de hidratos, {targetBreakfastProtein+2*targetLunchDinnerProtein} gramos 
           de proteínas y {dailyFatTarget} gramos de grasas.
           La distribución de los macros en las comidas será: 
           Desayuno: {targetBreakfastCarbs} gramos de hidratos, 
