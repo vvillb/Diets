@@ -19,6 +19,10 @@ def func():
 
     def evaluate_solution(solution):
         macros = get_macros(solution)
+        calories = get_calories(macros)
+        goal_calories = var1 * 4 + var2 * 4 + var3 * 9
+        if calories > 1.05 * goal_calories:
+            return float('inf')
         error = np.abs(var1 - macros[0]) + np.abs(var2 - macros[1]) + np.abs(var3 - macros[2])
         return error
 
