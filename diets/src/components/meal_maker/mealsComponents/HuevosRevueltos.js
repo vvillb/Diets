@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import script from '../pythonScripts/HuevosRevueltos.py';
-
+import Foto from '../../assets/imgs/TostasJamonCocido.png'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -42,14 +44,21 @@ const HuevosRevueltos = ({ var1, var2, var3}) => {
     };
 
   return (
-    <div className="App">
-      <header className="App-header">
-      <button onClick={handleClick}>Calcular las cantidades de esta comida</button>
-        <p>
-           {output}
-        </p>
-      </header>
-    </div>
+    <Card style={{ width: '18rem' }} className="mb-2">
+    <Card.Img variant="top" src={Foto}/>
+    <Card.Body>
+    <Card.Title>Huevos revueltos</Card.Title>
+       <div className="App">
+         <header className="App-header">
+         <Button variant="primary"onClick={handleClick}>Calcular las cantidades de esta comida</Button>
+           
+             <Card.Text> {output}</Card.Text>
+              
+          
+           </header>
+       </div>
+   </Card.Body>
+ </Card>
   );
 }
 

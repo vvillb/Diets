@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import FormCalc from '../info/FormCalc';
-import PyodidePoke from './PyodidePoke';
+import PyodidePoke from './mealsComponents/PyodidePoke';
 import TostasJamonCocido from './mealsComponents/TostasJamonCocido';
 import TostasJamonSerrano from './mealsComponents/TostasJamonSerrano';
 import HuevosRevueltos from './mealsComponents/HuevosRevueltos';
@@ -12,8 +12,8 @@ import TerneraPatataAceitunas from './mealsComponents/TerneraPatataAceitunas';
 import EnsaladaGarbanzos from './mealsComponents/EnsaladaGarbanzos';
 import TerneraPatataYogur from './mealsComponents/TerneraPatataYogur';
 import TortitasAvena from './mealsComponents/TortitasAvena';
-import Card from 'react-bootstrap/Card'
-import TostasJamonCocidoFoto from '../assets/imgs/TostasJamonCocido.png';
+import '../../App.css'
+
 
 function MealMaker() {
     const [protein, setProtein] = useState(0);
@@ -90,45 +90,32 @@ function MealMaker() {
         </p>
         </div>
       
-      <div>
-        <h4>Opciones para el desayuno:</h4>
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={TostasJamonCocidoFoto} />
-
-
-        </Card>
-        <h5>Tostadas con jamón cocido:</h5>
-        
-
-        <TostasJamonCocido var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
-        <h5>Tostadas con Jamón Serrano y tomate + copos de avena:</h5>
-        <TostasJamonSerrano var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
-        <h5>Smoothie Bowl:</h5>
-        <SmoothieBowl var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
-        <h5>Tortitas de avena con crema de cacahuete</h5>
-        <TortitasAvena var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
-
-        <h5>Huevos Revueltos:</h5>
-        <HuevosRevueltos  var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
-      </div>
-      <div>
-        <h4>Opciones para la comida y cena :</h4>
-        <h5>Poke Bowl:</h5>
-        <PyodidePoke var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-        <h5>Pasta con pollo y queso</h5>
-        <PastaPolloQueso var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-        <h5>Pescado con arroz y aceitunas + chocolate 85% y yogur</h5>
-        <PescadoArroz var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-        <h5>Gnocchi con pollo</h5>
-        <GnocchiPollo var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-        <h5>Ternera con patatas y aceitunas</h5>
-        <TerneraPatataAceitunas var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-        <h5>Ensalada de garbanzos</h5>
-        <EnsaladaGarbanzos var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-        <h5>Ternera con patatas y un yogur </h5>
-        <TerneraPatataYogur var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-      </div>
-       
+      <div >
+        <div>
+          <h4>Opciones para el desayuno:</h4>
+        </div>
+          <div className='breakfastSection'>
+            <TostasJamonCocido var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
+            <TostasJamonSerrano var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
+            <SmoothieBowl var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
+            <TortitasAvena var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
+            <HuevosRevueltos  var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h4>Opciones para la comida y cena :</h4>
+          </div>
+            <div className='breakfastSection'>
+              <PyodidePoke var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              <PastaPolloQueso var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              <PescadoArroz var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              <GnocchiPollo var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              <TerneraPatataAceitunas var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              <EnsaladaGarbanzos var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              <TerneraPatataYogur var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+            </div>
+          </div>
       </div>)}
     </div>
     </div>
