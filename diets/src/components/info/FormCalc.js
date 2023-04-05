@@ -18,6 +18,7 @@ function FormCalc(props) {
   const [currentTMB,setCurrentTMB]=useState(0);
   const [currentDailyCalories,setCurrentDailyCalories]=useState(0);
   const[currentTargetCalories,setCurrentTargetCalories]=useState(0);
+  const[distComidas,setDistComidas]=useState(0);
 
   useEffect(()=>{
     document.querySelector('#carbs').value="";
@@ -39,6 +40,9 @@ function FormCalc(props) {
   },[])
   useEffect(()=>{
     document.querySelector('#caloriasExtraObjetivo').value="";
+  },[])
+  useEffect(()=>{
+    document.querySelector('#distComidas').value="";
   },[])
   
 
@@ -130,7 +134,8 @@ if (caloriasExtraObjetivo === '') {
     setCurrentFats(fats);  
     setScoops(scoops);
     setFruit(fruit); 
-    props.onMacrosChange(protein, carbs, fats,scoops,fruit);   
+    setDistComidas(distComidas)
+    props.onMacrosChange(protein, carbs, fats,scoops,fruit,distComidas);   
   }
 
  
@@ -253,6 +258,20 @@ if (caloriasExtraObjetivo === '') {
           <option value="1">2 (30 gramos de hidratos) </option>
           <option value="2">3 (60 gramos de hidratos)</option>
           <option value="3">4 (90 gramos de hidratos)</option>
+
+         </select>
+      </div>
+      <div class="col-auto">
+        <label >Distribución de las comidas:</label>
+        <select
+          className="form-control"
+          id="distComidas"
+          value={distComidas}
+          onChange={event=>setDistComidas(event.target.value)}
+        >
+          <option value="0">Desayuno, comida y cena (+scoops de prote y fruta seleccionada)</option>
+          <option value="1">Desayuno, comida, cena y snack (+scoops de prote y fruta seleccionada)</option>
+          
 
          </select>
       </div>

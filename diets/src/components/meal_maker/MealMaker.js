@@ -31,6 +31,7 @@ function MealMaker() {
     const [targetLunchDinnerCarbs, setTargetLunchDinnerCarbs] = useState(0);
     const [targetLunchDinnerProtein, setTargetLunchDinnerProtein] = useState(0);
     const [targetLunchDinnerFats, setTargetLunchDinnerFats] = useState(0);
+    const [distComidas,setDistComidas]=useState(0);
 
 
     useEffect(() => {
@@ -54,7 +55,7 @@ function MealMaker() {
       setTargetLunchDinnerFats(remainingFatsForLunchDiner);
     }, [protein, carbs, fats, scoops, fruit, dailyCarbTarget, dailyProteinTarget, dailyFatTarget,targetBreakfastCarbs,targetBreakfastProtein,targetBreakfastFats]);
   
-    function handleMacrosChange(protein, carbs, fats, scoops, fruit) {
+    function handleMacrosChange(protein, carbs, fats, scoops, fruit,distComidas) {
       setProtein(protein);
       setCarbs(carbs);
       setFats(fats);
@@ -64,6 +65,7 @@ function MealMaker() {
       setDailyCarbTarget(carbs);
       setDailyProteinTarget(protein);
       setDailyFatTarget(fats);
+      setDistComidas(distComidas);
     }
   
 
