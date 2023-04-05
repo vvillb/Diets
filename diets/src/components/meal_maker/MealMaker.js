@@ -45,10 +45,13 @@ function MealMaker() {
       const remainingProteinForLunchDiner= Math.round(
         (remainingProtein- targetBreakfastProtein) / 2
       );
+      const remainingFatsForLunchDiner=Math.round(
+        (remainingFat- targetBreakfastFats) / 2
+      );
       setTargetLunchDinnerCarbs(remainingCarbsForLunchDinner);
       setTargetLunchDinnerProtein(remainingProteinForLunchDiner);
-      setTargetLunchDinnerFats(Math.round(remainingFat / 2));
-    }, [protein, carbs, fats, scoops, fruit, dailyCarbTarget, dailyProteinTarget, dailyFatTarget,targetBreakfastCarbs,targetBreakfastProtein]);
+      setTargetLunchDinnerFats(remainingFatsForLunchDiner);
+    }, [protein, carbs, fats, scoops, fruit, dailyCarbTarget, dailyProteinTarget, dailyFatTarget,targetBreakfastCarbs,targetBreakfastProtein,targetBreakfastFats]);
   
     function handleMacrosChange(protein, carbs, fats, scoops, fruit) {
       setProtein(protein);

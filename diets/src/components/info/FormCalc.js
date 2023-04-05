@@ -235,6 +235,7 @@ if (caloriasExtraObjetivo === '') {
           onChange={event=>setScoops(event.target.value)}
           
         >
+          <option value="0"> 0</option>
           <option value="1"> 1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -249,9 +250,9 @@ if (caloriasExtraObjetivo === '') {
           id="fruit"
           onChange={event=>setFruit(event.target.value)}
         >
-          <option value="1">1 (30 gramos de hidratos) </option>
-          <option value="2">2 (60 gramos de hidratos)</option>
-          <option value="3">3 (90 gramos de hidratos)</option>
+          <option value="1">2 (30 gramos de hidratos) </option>
+          <option value="2">3 (60 gramos de hidratos)</option>
+          <option value="3">4 (90 gramos de hidratos)</option>
 
          </select>
       </div>
