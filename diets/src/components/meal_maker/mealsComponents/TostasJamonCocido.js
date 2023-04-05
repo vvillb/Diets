@@ -6,7 +6,7 @@ import script from '../pythonScripts/tostasJamonCocido.py';
 
 const runScript = async (code, props) => {
   const pyodide = await window.loadPyodide({
-    indexURL : "https://cdn.jsdelivr.net/pyodide/dev/full/"
+    indexURL : "https://cdn.jsdelivr.net/pyodide/v0.23.0/full/"
   });
 
  

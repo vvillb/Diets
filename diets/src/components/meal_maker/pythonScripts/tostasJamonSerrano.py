@@ -1,6 +1,9 @@
 import numpy as np
 
+
+
 def func():
+    
     global var1, var2, var3
     
     food_macros = np.array([

@@ -12,7 +12,8 @@ import TerneraPatataAceitunas from './mealsComponents/TerneraPatataAceitunas';
 import EnsaladaGarbanzos from './mealsComponents/EnsaladaGarbanzos';
 import TerneraPatataYogur from './mealsComponents/TerneraPatataYogur';
 import TortitasAvena from './mealsComponents/TortitasAvena';
-
+import Card from 'react-bootstrap/Card'
+import TostasJamonCocidoFoto from '../assets/imgs/TostasJamonCocido.png';
 
 function MealMaker() {
     const [protein, setProtein] = useState(0);
@@ -91,6 +92,11 @@ function MealMaker() {
       
       <div>
         <h4>Opciones para el desayuno:</h4>
+        <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={TostasJamonCocidoFoto} />
+
+
+        </Card>
         <h5>Tostadas con jamón cocido:</h5>
         
 
