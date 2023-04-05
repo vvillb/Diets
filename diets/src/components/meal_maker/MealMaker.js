@@ -78,15 +78,14 @@ function MealMaker() {
         <p>Los macros diarios para las comidas son: {targetBreakfastCarbs+2*targetLunchDinnerCarbs} gramos de hidratos, {targetBreakfastProtein+2*targetLunchDinnerProtein} gramos 
           de proteínas y {dailyFatTarget} gramos de grasas.
           La distribución de los macros en las comidas será: 
-          Desayuno: {targetBreakfastCarbs} gramos de hidratos, 
-          {targetBreakfastProtein} gramos de proteína y {targetBreakfastFats}
-          gramos de grasas. Comida: {targetLunchDinnerCarbs} gramos de hidratos, 
-          {targetLunchDinnerProtein} gramos de proteína y {targetLunchDinnerFats} gramos de grasas.
-          E igualmente para la cena: {targetLunchDinnerCarbs} gramos de hidratos, 
-          {targetLunchDinnerProtein} gramos de proteína y {targetLunchDinnerFats} gramos de grasas.
+          Desayuno: {targetBreakfastCarbs} gramos de hidratos,            {targetBreakfastProtein} gramos de proteína 
+          y {targetBreakfastFats}        gramos de grasas. Comida: {targetLunchDinnerCarbs} gramos de hidratos,  {targetLunchDinnerProtein} gramos 
+          de proteína y {targetLunchDinnerFats} gramos de grasas.
+          E igualmente para la cena: {targetLunchDinnerCarbs} gramos de hidratos, {targetLunchDinnerProtein} gramos 
+          de proteína y {targetLunchDinnerFats} gramos de grasas.
           Tomando en cuenta que se han cogido {fruit} porciones de fruta,  las cuales
-          restan { 30*fruit} grs de carbohidratos, y {scoops} de proteína, que restan unos  
-          { 23*scoops} gramos de proteína.
+          restan { 30*fruit} grs de carbohidratos, y {scoops} de proteína, que restan 
+          unos            { 23*scoops} gramos de proteína.
         </p>
         </div>
       
