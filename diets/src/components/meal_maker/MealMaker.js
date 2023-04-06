@@ -172,9 +172,9 @@ console.log(targetSnack2Fats)
           <h4>Opciones para el desayuno:</h4>
         </div>
           <div className='breakfastSection'>
+            <SmoothieBowl var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
             <TostasJamonCocido var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
             <TostasJamonSerrano var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
-            <SmoothieBowl var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
             <TortitasAvena var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
             <HuevosRevueltos  var1={targetBreakfastCarbs} var2={targetBreakfastProtein} var3={targetBreakfastFats}/>
           </div>
@@ -196,7 +196,7 @@ console.log(targetSnack2Fats)
           {targetSnackCarbs&&(
           <>
           <div>
-          <h4>Opciones de snacks</h4>
+          <h4>Opciones de snacks:</h4>
           </div>
           <div>
             <SnackFajitasSerrano var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
