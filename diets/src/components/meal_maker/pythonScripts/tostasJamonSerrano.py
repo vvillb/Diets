@@ -54,7 +54,7 @@ def func():
     calories = get_calories(macros)
     amounts = current_solution
 
-    return (f"{amounts[0]:d} tostadas de pan de semillas o cereales, {amounts[1]:d} lonchas de jamón serrano (10gr/loncha), {amounts[2]:d} vaso (250ml) de leche desnatada, {amounts[3]:d} cucharaditas de aceite de oliva y {amounts[4]:d} gramos de copos de avena. Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
+    return (f"{amounts[0]:d} tostadas de pan de semillas o cereales, {amounts[1]:d} lonchas de jamón serrano ({10*amounts[1]:d} gr), {amounts[2]:d} vaso (250ml) de leche desnatada, {amounts[3]:d} cucharaditas de aceite de oliva y {amounts[4]:d} gramos de copos de avena. Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
 
 var1 = globals().get('var1', 0)
 var2 = globals().get('var2', 0)

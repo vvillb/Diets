@@ -46,7 +46,7 @@ def func():
 
    
     # Print the grams of each food item
-    return (f"{amounts[0]:d} tostadas de pan de semillas o cereales, {amounts[1]:d} lonchas de jamón cocido (10gr/loncha), {amounts[2]:d} gramos de frutos secos (almendras/anacardos/cacahuetes/crema de cacahuete...), {amounts[3]:d} cucharaditas de aceite de oliva. Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
+    return (f"{amounts[0]:d} tostadas de pan de semillas o cereales, {amounts[1]:d} lonchas de jamón cocido ({10*amounts[1]:d} gr), {amounts[2]:d} gramos de frutos secos (almendras/anacardos/cacahuetes/crema de cacahuete...), {amounts[3]:d} cucharaditas de aceite de oliva. Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
   
 
 
