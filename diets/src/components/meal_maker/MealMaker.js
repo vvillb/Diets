@@ -13,6 +13,7 @@ import EnsaladaGarbanzos from './mealsComponents/EnsaladaGarbanzos';
 import TerneraPatataYogur from './mealsComponents/TerneraPatataYogur';
 import TortitasAvena from './mealsComponents/TortitasAvena';
 import '../../App.css'
+import SnackFajitasSerrano from './mealsComponents/SnackFajitasSerrano';
 
 
 function MealMaker() {
@@ -32,15 +33,71 @@ function MealMaker() {
     const [targetLunchDinnerProtein, setTargetLunchDinnerProtein] = useState(0);
     const [targetLunchDinnerFats, setTargetLunchDinnerFats] = useState(0);
     const [distComidas,setDistComidas]=useState(0);
-
+    const [targetSnackCarbs, setTargetSnackCarbs] = useState(0);
+    const [targetSnackProtein, setTargetSnackProtein] = useState(0);
+    const [targetSnackFats, setTargetSnackFats] = useState(0);
+    const [targetSnack2Carbs, setTargetSnack2Carbs] = useState(0);
+    const [targetSnack2Protein, setTargetSnack2Protein] = useState(0);
+    const [targetSnack2Fats, setTargetSnack2Fats] = useState(0);
+console.log("snaack1")
+console.log(targetSnackFats)
+console.log("sanaack2")
+console.log(targetSnack2Fats)
 
     useEffect(() => {
       const remainingCarbs = dailyCarbTarget - 30 * fruit;
       const remainingProtein = dailyProteinTarget - 23 * scoops;
       const remainingFat = dailyFatTarget;
+      if (distComidas===2){
+        setTargetBreakfastCarbs(Math.round(remainingCarbs * 0.18));
+        setTargetBreakfastProtein(Math.round(remainingProtein * 0.18));
+        setTargetBreakfastFats(Math.round(remainingFat * 0.18));
+        setTargetSnackCarbs(Math.round(remainingCarbs * 0.15));
+        setTargetSnackProtein(Math.round(remainingProtein * 0.15));
+        setTargetSnackFats(Math.round(remainingFat * 0.15));
+        setTargetSnack2Carbs(Math.round(remainingCarbs * 0.15));
+        setTargetSnack2Protein(Math.round(remainingProtein * 0.15));
+        setTargetSnack2Fats(Math.round(remainingFat * 0.15));
+        const remainingCarbsForLunchDinner = Math.round(
+          (remainingCarbs - targetBreakfastCarbs - targetSnackCarbs-targetSnack2Carbs) / 2
+        );
+        const remainingProteinForLunchDiner= Math.round(
+          (remainingProtein- targetBreakfastProtein-targetSnackProtein-targetSnack2Protein) / 2
+        );
+        const remainingFatsForLunchDiner=Math.round(
+          (remainingFat- targetBreakfastFats-targetSnackFats-targetSnack2Fats) / 2
+        );
+        setTargetLunchDinnerCarbs(remainingCarbsForLunchDinner);
+        setTargetLunchDinnerProtein(remainingProteinForLunchDiner);
+        setTargetLunchDinnerFats(remainingFatsForLunchDiner);
+      }else{
+      if (distComidas===1){
+        setTargetSnack2Carbs(0);
+        setTargetBreakfastCarbs(Math.round(remainingCarbs * 0.18));
+        setTargetBreakfastProtein(Math.round(remainingProtein * 0.18));
+        setTargetBreakfastFats(Math.round(remainingFat * 0.18));
+        setTargetSnackCarbs(Math.round(remainingCarbs * 0.18));
+        setTargetSnackProtein(Math.round(remainingProtein * 0.18));
+        setTargetSnackFats(Math.round(remainingFat * 0.18));
+        const remainingCarbsForLunchDinner = Math.round(
+          (remainingCarbs - targetBreakfastCarbs- targetSnackCarbs) / 2
+        );
+        const remainingProteinForLunchDiner= Math.round(
+          (remainingProtein- targetBreakfastProtein-targetSnackProtein) / 2
+        );
+        const remainingFatsForLunchDiner=Math.round(
+          (remainingFat- targetBreakfastFats-targetSnackFats) / 2
+        );
+        setTargetLunchDinnerCarbs(remainingCarbsForLunchDinner);
+        setTargetLunchDinnerProtein(remainingProteinForLunchDiner);
+        setTargetLunchDinnerFats(remainingFatsForLunchDiner);
+      }else{
       setTargetBreakfastCarbs(Math.round(remainingCarbs * 0.22));
       setTargetBreakfastProtein(Math.round(remainingProtein * 0.22));
       setTargetBreakfastFats(Math.round(remainingFat * 0.22));
+      setTargetSnackCarbs(0);
+      setTargetSnackProtein(0);
+      setTargetSnackFats(0);
       const remainingCarbsForLunchDinner = Math.round(
         (remainingCarbs - targetBreakfastCarbs) / 2
       );
@@ -53,7 +110,7 @@ function MealMaker() {
       setTargetLunchDinnerCarbs(remainingCarbsForLunchDinner);
       setTargetLunchDinnerProtein(remainingProteinForLunchDiner);
       setTargetLunchDinnerFats(remainingFatsForLunchDiner);
-    }, [protein, carbs, fats, scoops, fruit, dailyCarbTarget, dailyProteinTarget, dailyFatTarget,targetBreakfastCarbs,targetBreakfastProtein,targetBreakfastFats]);
+    }}}, [protein, carbs, fats, scoops, fruit, dailyCarbTarget, dailyProteinTarget, dailyFatTarget,targetBreakfastCarbs,targetBreakfastProtein,targetBreakfastFats,distComidas,targetSnack2Carbs,targetSnack2Fats,targetSnack2Protein,targetSnackCarbs,targetSnackFats,targetSnackProtein]);
   
     function handleMacrosChange(protein, carbs, fats, scoops, fruit,distComidas) {
       setProtein(protein);
@@ -78,17 +135,35 @@ function MealMaker() {
       {formSubmitted && (
       <div>
         <div>
-        <p>Los macros diarios para las comidas son: {targetBreakfastCarbs+2*targetLunchDinnerCarbs} gramos de hidratos, {targetBreakfastProtein+2*targetLunchDinnerProtein} gramos 
-          de proteínas y {dailyFatTarget} gramos de grasas.
-          La distribución de los macros en las comidas será: 
-          Desayuno: {targetBreakfastCarbs} gramos de hidratos,            {targetBreakfastProtein} gramos de proteína 
-          y {targetBreakfastFats}        gramos de grasas. Comida: {targetLunchDinnerCarbs} gramos de hidratos,  {targetLunchDinnerProtein} gramos 
-          de proteína y {targetLunchDinnerFats} gramos de grasas.
-          E igualmente para la cena: {targetLunchDinnerCarbs} gramos de hidratos, {targetLunchDinnerProtein} gramos 
-          de proteína y {targetLunchDinnerFats} gramos de grasas.
-          Tomando en cuenta que se han cogido {fruit} porciones de fruta,  las cuales
-          restan { 30*fruit} grs de carbohidratos, y {scoops} de proteína, que restan 
-          unos            { 23*scoops} gramos de proteína.
+        <p>Los macros diarios para las comidas son: {targetBreakfastCarbs+2*targetLunchDinnerCarbs+targetSnack2Carbs+targetSnackCarbs} gramos de hidratos, {targetBreakfastProtein+2*targetLunchDinnerProtein+targetSnack2Protein+targetSnackProtein} gramos 
+          de proteínas y {dailyFatTarget} gramos de grasas.</p> 
+
+          
+
+          <p>Desayuno:</p>
+          <p> {targetBreakfastCarbs} gramos de hidratos,            {targetBreakfastProtein} gramos de proteína 
+          y {targetBreakfastFats}        gramos de grasas.</p>
+
+          <p>Comida: </p>
+
+          <p>{targetLunchDinnerCarbs} gramos de hidratos,  {targetLunchDinnerProtein} gramos 
+          de proteína y {targetLunchDinnerFats} gramos de grasas.</p>
+          
+          <p>Cena: </p>
+          
+          <p>{targetLunchDinnerCarbs} gramos de hidratos, {targetLunchDinnerProtein} gramos 
+          de proteína y {targetLunchDinnerFats} gramos de grasas.</p>
+         
+          Snack 1: {distComidas&&( <p> {targetSnackCarbs} gramos de hidratos, {targetSnackProtein} gramos 
+          de proteína y {targetSnackFats} gramos de grasas.</p>)}
+
+          Snack 2: {targetSnack2Carbs&&( <p> {targetSnack2Carbs} gramos de hidratos, {targetSnack2Protein} gramos 
+          de proteína y {targetSnack2Fats} gramos de grasas.</p>)}
+
+          <p>
+          Tomando en cuenta que se han cogido porciones de fruta,  las cuales
+          restan { 30*fruit} grs de carbohidratos, y {scoops} scoop de proteína, que resta 
+          unos            { 23*scoops} gramos de proteína. 
         </p>
         </div>
       
@@ -118,6 +193,17 @@ function MealMaker() {
               <TerneraPatataYogur var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
             </div>
           </div>
+          {targetSnackCarbs&&(
+          <>
+          <div>
+          <h4>Opciones de snacks</h4>
+          </div>
+          <div>
+            <SnackFajitasSerrano var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
+          </div>
+          </>
+          )}
+
       </div>)}
     </div>
     </div>

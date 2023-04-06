@@ -107,7 +107,7 @@ function FormCalc(props) {
      }
      let DailyCalories = Math.round(TMB * activityFactor);
      setCurrentDailyCalories(DailyCalories);
- console.log(currentActivityLevel)
+
 // Add caloriasExtraObjetivo to DailyCalories to get targetCalories
 const targetCalories = DailyCalories + parseInt(caloriasExtraObjetivo);
 if (caloriasExtraObjetivo === '') {
@@ -134,7 +134,8 @@ if (caloriasExtraObjetivo === '') {
     setCurrentFats(fats);  
     setScoops(scoops);
     setFruit(fruit); 
-    setDistComidas(distComidas)
+    const distComidasNumber = parseInt(distComidas);
+    setDistComidas(distComidasNumber);
     props.onMacrosChange(protein, carbs, fats,scoops,fruit,distComidas);   
   }
 
@@ -269,8 +270,9 @@ if (caloriasExtraObjetivo === '') {
           value={distComidas}
           onChange={event=>setDistComidas(event.target.value)}
         >
-          <option value="0">Desayuno, comida y cena (+scoops de prote y fruta seleccionada)</option>
-          <option value="1">Desayuno, comida, cena y snack (+scoops de prote y fruta seleccionada)</option>
+          <option value="0">3: Desayuno, comida y cena (+scoops de prote y fruta seleccionada)</option>
+          <option value="1">4: Desayuno, comida, cena y snack (+scoops de prote y fruta seleccionada)</option>
+          <option value="2">5: Desayuno, comida, cena y  2 snacks (+scoops de prote y fruta seleccionada)</option>
           
 
          </select>
