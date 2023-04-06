@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import script from '../pythonScripts/GnocchiPollo.py';
-import Foto from '../../assets/imgs/TostasJamonCocido.png'
+import Foto from '../../assets/imgs/gnocchi.png'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 

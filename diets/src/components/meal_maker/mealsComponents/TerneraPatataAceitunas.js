@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import script from '../pythonScripts/TerneraPatataAceitunas.py';
-import Foto from '../../assets/imgs/TostasJamonCocido.png'
+import Foto from '../../assets/imgs/TerneraPatata.png'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 

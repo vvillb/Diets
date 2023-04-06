@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import script from '../pythonScripts/tostasJamonSerrano.py';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
-import Foto from '../../assets/imgs/TostasJamonCocido.png'
+import Foto from '../../assets/imgs/tostasSerrano.png'
 
 const runScript = async (code, props) => {
   const pyodide = await window.loadPyodide({
