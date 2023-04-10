@@ -45,7 +45,7 @@ def func():
 
    
     # Print the grams of each food item
-    return (f"{amounts[0]:d} gramos de pasta integral, {amounts[1]:d} gramos de pollo, {amounts[2]:d} rodajas de queso Mozzarella (10 grs por rodaja) y {amounts[3]:d} puñado(s) de aceitunas (10gr/puñado). Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
+    return (f"{amounts[0]:d} gramos de pasta integral, {amounts[1]:d} gramos de pollo, {amounts[2]:d} rodajas de queso Mozzarella ({10*amounts[2]:d} gramos) y {amounts[3]:d} puñado(s) de aceitunas (10gr/puñado). Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
   
 
 
