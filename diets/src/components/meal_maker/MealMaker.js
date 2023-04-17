@@ -15,6 +15,10 @@ import TortitasAvena from './mealsComponents/TortitasAvena';
 import '../../App.css'
 import SnackFajitasSerrano from './mealsComponents/SnackFajitasSerrano';
 import QuesoFrescoBatidoConAvena from './mealsComponents/QuesoFrescoBatidoConAvena';
+import PanAguacateAtun from './mealsComponents/PanAguacateAtun';
+import TostasJamonCocidoCopy from './mealsComponents/TostasJamonSerrano';
+import TostasJamonYQueso from './mealsComponents/TostasJamonYQueso';
+import CornFlakesProteicos from './mealsComponents/CornFlakesProteicos';
 
 
 function MealMaker() {
@@ -199,9 +203,13 @@ console.log(targetSnack2Fats)
           <div>
           <h4>Opciones de snacks:</h4>
           </div>
-          <div>
+          <div className='breakfastSection'>
             <SnackFajitasSerrano var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
             <QuesoFrescoBatidoConAvena var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
+            <PanAguacateAtun var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
+            <TostasJamonYQueso var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
+            <CornFlakesProteicos var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
+
 
           </div>
           </>
