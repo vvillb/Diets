@@ -14,6 +14,7 @@ import TerneraPatataYogur from './mealsComponents/TerneraPatataYogur';
 import TortitasAvena from './mealsComponents/TortitasAvena';
 import '../../App.css'
 import SnackFajitasSerrano from './mealsComponents/SnackFajitasSerrano';
+import QuesoFrescoBatidoConAvena from './mealsComponents/QuesoFrescoBatidoConAvena';
 
 
 function MealMaker() {
@@ -163,7 +164,7 @@ console.log(targetSnack2Fats)
           <p>
           Tomando en cuenta que se han cogido porciones de fruta,  las cuales
           restan { 30*fruit} grs de carbohidratos, y {scoops} scoop de proteína, que resta 
-          unos            { 23*scoops} gramos de proteína. 
+          unos            { 23*scoops} gramos de proteína.
         </p>
         </div>
       
@@ -200,6 +201,8 @@ console.log(targetSnack2Fats)
           </div>
           <div>
             <SnackFajitasSerrano var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
+            <QuesoFrescoBatidoConAvena var1={targetSnackCarbs} var2={targetSnackProtein} var3={targetSnackFats}/>
+
           </div>
           </>
           )}

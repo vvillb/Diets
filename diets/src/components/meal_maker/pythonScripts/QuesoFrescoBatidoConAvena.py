@@ -7,11 +7,11 @@ def func():
     global var1, var2, var3
     
     food_macros = np.array([
-        [11.6, 2.9, 1],
-        [0.05, 3, 1.8],
-        [12, 7.8, 0.8],
-        [0, 0, 4.5],
+        [0.035,0.08,0],
         [0.59, 0.14, 0.07],
+        [0.137, 0.152, 0.652],
+        [17.3, 0.06, 0],
+        
     ])
 
     def get_macros(amounts):
@@ -29,13 +29,13 @@ def func():
         error = np.abs(var1 - macros[0]) + np.abs(var2 - macros[1]) + np.abs(var3 - macros[2])
         return error
 
-    current_solution = np.array([1, 1, 1, 1, 30], dtype=int)
+    current_solution = np.array([150, 20, 15,1], dtype=int)
     current_score = evaluate_solution(current_solution)
 
     while True:
-        neighbors = [current_solution.copy() for _ in range(5)]
+        neighbors = [current_solution.copy() for _ in range(4)]
         
-        for i in range(5):
+        for i in range(4):
             if i == 2:
                 neighbors[i][i] = 1 - neighbors[i][i]  # Toggle between 0 and 1
             else:
@@ -54,7 +54,7 @@ def func():
     calories = get_calories(macros)
     amounts = current_solution
 
-    return (f"{amounts[0]:d} tostadas de pan de semillas o cereales, {amounts[1]:d} lonchas de jamón serrano  ({10*amounts[1]:d} gr), {amounts[2]:d} vaso (250ml) de leche desnatada, {amounts[3]:d} cucharadita(s) de aceite de oliva y {amounts[4]:d} gramos de copos de avena. Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
+    return (f"{amounts[0]:d} ml de queso fresco batido, {amounts[1]:d} grs de copos de avena  , {amounts[2]:d} grs de nueces y {amounts[3]:d} cucharada(s) de miel ({21*amounts[3]:d} grs). Las calorías resultantes serían {round(calories):d}. Los macronutrientes resultantes serían {round(macros[0]):d} gramos de carbohidratos, {round(macros[1]):d} gramos de proteínas y {round(macros[2]):d} gramos de grasas.")
 
 var1 = globals().get('var1', 0)
 var2 = globals().get('var2', 0)
