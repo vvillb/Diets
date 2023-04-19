@@ -19,6 +19,7 @@ import PanAguacateAtun from './mealsComponents/PanAguacateAtun';
 import TostasJamonCocidoCopy from './mealsComponents/TostasJamonSerrano';
 import TostasJamonYQueso from './mealsComponents/TostasJamonYQueso';
 import CornFlakesProteicos from './mealsComponents/CornFlakesProteicos';
+import CopiaEnsaladaGarbanzos from './mealsComponents/CopiaEnsaladaGarbanzos';
 
 
 function MealMaker() {
@@ -196,6 +197,8 @@ console.log(targetSnack2Fats)
               <TerneraPatataAceitunas var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
               <EnsaladaGarbanzos var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
               <TerneraPatataYogur var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              <CopiaEnsaladaGarbanzos var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+
             </div>
           </div>
           {targetSnackCarbs&&(
