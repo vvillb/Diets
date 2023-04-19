@@ -197,7 +197,7 @@ console.log(targetSnack2Fats)
               <TerneraPatataAceitunas var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
               <EnsaladaGarbanzos var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
               <TerneraPatataYogur var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
-              <CopiaEnsaladaGarbanzos var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/>
+              {/* <CopiaEnsaladaGarbanzos var1={targetLunchDinnerCarbs} var2={targetLunchDinnerProtein} var3={targetLunchDinnerFats}/> */}
 
             </div>
           </div>
