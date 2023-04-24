@@ -48,7 +48,7 @@ function MealMaker() {
 console.log("snaack1")
 console.log(targetSnackFats)
 console.log("sanaack2")
-console.log(targetSnack2Fats)
+console.log(targetSnack2Carbs)
 
     useEffect(() => {
       const remainingCarbs = dailyCarbTarget - 30 * fruit;
@@ -98,6 +98,7 @@ console.log(targetSnack2Fats)
         setTargetLunchDinnerProtein(remainingProteinForLunchDiner);
         setTargetLunchDinnerFats(remainingFatsForLunchDiner);
       }else{
+        if (distComidas===3){
       setTargetBreakfastCarbs(Math.round(remainingCarbs * 0.22));
       setTargetBreakfastProtein(Math.round(remainingProtein * 0.22));
       setTargetBreakfastFats(Math.round(remainingFat * 0.22));
@@ -116,7 +117,7 @@ console.log(targetSnack2Fats)
       setTargetLunchDinnerCarbs(remainingCarbsForLunchDinner);
       setTargetLunchDinnerProtein(remainingProteinForLunchDiner);
       setTargetLunchDinnerFats(remainingFatsForLunchDiner);
-    }}}, [protein, carbs, fats, scoops, fruit, dailyCarbTarget, dailyProteinTarget, dailyFatTarget,targetBreakfastCarbs,targetBreakfastProtein,targetBreakfastFats,distComidas,targetSnack2Carbs,targetSnack2Fats,targetSnack2Protein,targetSnackCarbs,targetSnackFats,targetSnackProtein]);
+    }}}}, [protein, carbs, fats, scoops, fruit, dailyCarbTarget, dailyProteinTarget, dailyFatTarget,targetBreakfastCarbs,targetBreakfastProtein,targetBreakfastFats,distComidas,targetSnack2Carbs,targetSnack2Fats,targetSnack2Protein,targetSnackCarbs,targetSnackFats,targetSnackProtein]);
   
     function handleMacrosChange(protein, carbs, fats, scoops, fruit,distComidas) {
       setProtein(protein);
